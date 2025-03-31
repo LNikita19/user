@@ -255,7 +255,7 @@ const Programs = () => {
                 </div>
             )}
 
-            {/* Program Cards */}
+          
             {!isLoading && (
                 <>
                     <div className="flex justify-center mt-8 font-jakarta relative">
