@@ -120,6 +120,7 @@ const Programs = () => {
     const [isCombo, setIsCombo] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [existingPrograms, setExistingPrograms] = useState([]);
+    const [sortBy, setSortBy] = useState("");
 
     useEffect(() => {
         const fetchAllPrograms = async () => {
@@ -173,6 +174,15 @@ const Programs = () => {
         }
     };
 
+    // Sorting logic
+    if (sortBy === "program") {
+        allPrograms.sort((a, b) => a.selectProgram.localeCompare(b.selectProgram));
+    } else if (sortBy === "month") {
+        allPrograms.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+    } else if (sortBy === "language") {
+        allPrograms.sort((a, b) => (a.language || "").localeCompare(b.language || ""));
+    }
+
     return (
         <div id="Programs" className="px-6 py-10 bg-[#FFFBEF]">
             {/* Header Section */}
@@ -181,6 +191,61 @@ const Programs = () => {
                 <h1 className="text-[#361A06] md:text-[64px] text-[32px] font-bold mt-2">
                     Discover & Register <br /> For Our Classes
                 </h1>
+            </div>
+            <div className="flex flex-col items-center space-y-4 sm:space-y-2 ml-0 lg:ml-[-36rem]">
+                <h1 className="text-[#361A06] font-david text-[32px] text-center">
+                    Sort by
+                </h1>
+                <div className="flex flex-row lg:justify-center gap-2 md:gap-4 ">
+                    <button
+                        className={`flex items-center md:p-4 p-2 md:text-[20px] text-[16px] rounded-md bg-[#FDF7C4] ${sortBy === "program" ? "bg-[#FD8531] text-white" : "text-[#361A06] font-bold"
+                            }`}
+                        onClick={() => setSortBy("program")}
+                    >
+                        Program
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 ml-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        className={`flex items-center md:p-4 p-2 md:text-[20px] text-[16px] rounded-md bg-[#FDF7C4] ${sortBy === "month" ? "bg-[#FD8531] text-white" : "text-[#361A06] font-bold"
+                            }`}
+                        onClick={() => setSortBy("month")}
+                    >
+                        Month
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 ml-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        className={`flex items-center md:p-4 p-2 md:text-[20px] text-[16px] rounded-md bg-[#FDF7C4] ${sortBy === "language" ? "bg-[#FD8531] text-white" : "text-[#361A06] font-bold"
+                            }`}
+                        onClick={() => setSortBy("language")}
+                    >
+                        Language
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 ml-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             {/* Loading State */}
