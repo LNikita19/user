@@ -68,7 +68,7 @@ const About = () => {
             <div className="bg-[#FFF4C0] font-david flex flex-col">
 
                 <div className=" p-6 flex justify-center mt-8">
-                    <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-[90%] md:w-[60%] flex flex-col md:flex-row items-center">
+                    <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-[full md:w-[60%] flex flex-col md:flex-row items-center">
                         <div className="md:w-1/2 text-start md:text-left px-6">
                             <h2 className="text-[#D17A0E]  uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
                             <h1 className="md:text-[48px] text-[24px] font-bold mt-2">{aboutData.Heading}</h1>
@@ -81,14 +81,14 @@ const About = () => {
                         </div>
 
                         {/* Image Carousel */}
-                        <div className="md:w-1/2 flex flex-col items-center relative mt-4 md:mt-0 min-h-[300px] md:min-h-[400px]">
+                        <div className="md:w-1/2 flex flex-col items-center relative mt-4 md:mt-0 min-h-[300px] md:min-h-[400px] w-full">
                             <div className="relative w-72 md:w-11/12 h-72 md:h-80 overflow-hidden rounded-lg">
                                 {aboutData.PhotoCarousel?.map((img, index) => (
                                     <img
                                         key={index}
                                         src={img}
                                         alt="Yoga"
-                                        className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+                                        className={`absolute w-full h-full object-cover  rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
                                     />
                                 ))}
                             </div>

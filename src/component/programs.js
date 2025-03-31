@@ -206,7 +206,7 @@ const Programs = () => {
                             {allPrograms.map((program) => (
                                 <div
                                     key={program._id}
-                                    className="relative bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-96 md:w-[500px]"
+                                    className="relative bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-full md:w-[500px]"
                                 >
                                     {/* Program Image */}
                                     <img
@@ -225,11 +225,13 @@ const Programs = () => {
 
 
                                     {/* Combo Badge */}
-                                    {program.badge && (
+                                    {/* Combo Badge */}
+                                    {program.type === 'combo' && (
                                         <div className="absolute top-3 right-3 bg-[#FD8531] text-white text-sm px-3 py-1 rounded-full">
-                                            {program.badge}
+                                            Combo
                                         </div>
                                     )}
+
 
                                     {/* Program Details */}
                                     <div className="px-6 py-2 flex-1 font-jakarta">
