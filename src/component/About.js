@@ -50,7 +50,7 @@ const About = () => {
     return (
         <div className="bg-[#FFF4C0] font-david flex flex-col">
             <div className="p-6 flex justify-center mt-8">
-                <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-full md:w-[60%] flex flex-col md:flex-row items-center">
+                <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-full md:w-[55%] flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 text-start md:text-left px-6">
                         <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
                         <h1 className="md:text-[48px] text-[24px] font-bold mt-2">{aboutData.Heading}</h1>

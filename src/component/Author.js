@@ -28,9 +28,9 @@ const Author = () => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row justify-start md:mt-44 mt-16 md:mb-1 mb-14 items-center space-y-6 md:space-x-52 gap-20 ">
+        <div className="flex flex-col md:flex-row justify-start md:mt-44 mt-16 md:-mb-8 mb-14 items-center space-y-6 md:space-x-52 gap-20 ">
             {/* Left Section - Text */}
-            <div className="max-w-xl md:-ml-[5rem] ml-0 md:text-left  text-start font-david px-4">
+            <div className="max-w-xl md:-ml-[8rem] ml-0 md:text-left  text-start font-david px-4">
                 <p className="text-[#FD8531] font-bold md:text-[24px] uppercase text-[20px]">Instructor</p>
                 <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] ">
                     {heading || "Meet Our Talented Instructor"}
@@ -50,7 +50,7 @@ const Author = () => {
                 <img
                     src={image || "/main.webp"}
                     alt="Round Background"
-                    className="absolute w-[250px] sm:w-[350px] md:w-[500px] lg:w-[600px] -opacity-10"
+                    className="absolute w-[250px] sm:w-[350px] md:w-[400px] lg:w-[500px] -opacity-10"
                 />
                 {/* <img
                         src="/Person.png"

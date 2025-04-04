@@ -105,7 +105,7 @@ const Footer = () => {
                 <hr className="border-[#FFF9E1] w-full mx-auto mb-4" />
 
                 {/* Text in a row */}
-                <div className="flex flex-row justify-between items-center w-full px-4">
+                <div className="flex flex-row justify-around items-center w-full px-4">
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px]">
                         Shyama Yoga Studio
                     </p>

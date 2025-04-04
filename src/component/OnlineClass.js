@@ -89,8 +89,13 @@ const OnlineClass = () => {
                             </button>
 
                             {/* Image */}
-                            <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto  object-cover" />
-
+                            <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
+                                <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto  object-cover" />
+                                {/* Blur Gradient Overlay */}
+                                <div className="absolute -bottom-0 left-0 w-full h-1/2"
+                                    style={{ background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)" }}>
+                                </div>
+                            </div>
                             {/* Training Label */}
                             <p className="text-[#FD8531] font-david text-lg font-bold uppercase mt-2">Training Online</p>
 
@@ -98,13 +103,22 @@ const OnlineClass = () => {
                             <h2 className="text-[24px] md:text-[28px] font-david font-bold mt-1">{classData.selectProgram}</h2>
 
                             {/* Details List */}
-                            <ul className="mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px] list-disc pl-5">
-                                <li><b>Date:</b> {classData.startDate} - {classData.endDate}</li>
-                                <li><b>Session Timings:</b> {classData.programTiming}</li>
-                                <li><b>Language:</b> {classData.selectLanguage}</li>
-                                <li><b>Program Fee:</b> {classData.programFees}</li>
+                            <ul className="mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px]">
+                                {[
+                                    { label: "Date", value: `${formatDate(classData.startDate)} - ${formatDate(classData.endDate)}` },
+                                    { label: "Session Timings", value: classData.programTiming },
+                                    { label: "Language", value: classData.selectLanguage },
+                                    { label: "Program Fee", value: classData.programFees },
+                                ].map((item, index) => (
+                                    <li key={index} className="grid grid-cols-[1fr_10px_2fr] items-start text-start ">
+                                        <span className="font-bold text-[#361A06] ">
+                                            • {item.label}
+                                        </span>
+                                        <span className="text-start font-bold text-[#361A06]">:</span>
+                                        <span className="text-[#361A06] text-start ml-2">{item.value}</span>
+                                    </li>
+                                ))}
                             </ul>
-
                             {/* FAQ Section */}
                             <h3 className="mt-4 mb-4 text-lg font-david text-[20px] md:text-[24px] text-[#361A06] font-bold">
                                 FAQs (Important Please Read)
@@ -118,9 +132,9 @@ const OnlineClass = () => {
                                             onClick={() => toggleFAQ(index)}
                                         >
                                             <div className="flex flex-col w-full">
-                                                <span>{faq.question}</span>
+                                                <span className="text-[#361A06B2]">{faq.question}</span>
                                                 {openFAQ === index && (
-                                                    <span className="mt-2 text-[#555] text-[14px]">{faq.answer}</span>
+                                                    <span className="mt-2 text-[#361A06B2] text-[14px]">{faq.answer}</span>
                                                 )}
                                             </div>
                                             <span className="text-sm">{openFAQ === index ? "▲" : "▼"}</span>

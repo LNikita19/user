@@ -45,7 +45,7 @@ const Navbar = () => {
             />
 
             {/* Navbar */}
-            <div className="absolute top-0 left-0 w-full flex flex-col items-center lg:flex-row lg:justify-between lg:items-center px-10 py-5 border-b border-white/20 z-40">
+            <div className="absolute  w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
                 <img src="/Logo.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
                 <button
                     className="font-PlusJakartaSans font-bold hidden lg:block bg-[#361A06] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"

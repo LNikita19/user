@@ -34,13 +34,19 @@ const Combopopup = ({ onClose, program }) => {
             <div className="border-2 border-[#ecd8ca80] p-6 mt-4 lg:mt-0 rounded-xl bg-white shadow-xl w-full sm:max-w-lg md:max-w-xl max-h-screen overflow-y-auto relative">
 
                 {/* Close Button */}
-                <button className="absolute top-4 right-4 text-[#361A06] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md" onClick={onClose}>
+                <button className="absolute z-50 top-4 right-4 text-[#361A06] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md" onClick={onClose}>
                     ✖
                 </button>
+                {/* <img src={program.Photo} alt="Program" className="w-full max-h-60 object-contain rounded-xl" /> */}
 
                 {/* Program Image */}
-                <img src={program.Photo} alt="Program" className="w-full max-h-60 object-contain rounded-xl" />
-
+                <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
+                    <img src={program.Photo} alt="Program" className="w-full h-full object-cover" />
+                    {/* Blur Gradient Overlay */}
+                    <div className="absolute -bottom-0 left-0 w-full h-1/2"
+                        style={{ background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)" }}>
+                    </div>
+                </div>
                 {/* Quote */}
                 <p className="italic text-center text-[#361A06] mt-3">
                     "{program.Quto}"<br />
@@ -56,12 +62,23 @@ const Combopopup = ({ onClose, program }) => {
                     <h2 className="text-xl font-bold text-[#361A06]">{program.selectProgram}</h2>
                     <p className="text-[#361A06] mt-2">{program.Description}</p>
 
-                    <ul className="mt-3 space-y-1 text-[#361A06]">
-                        <li><b>Date:</b> {formatDate(program.startDate)} - {formatDate(program.endDate) || "09th Jan 2025"}</li>
-                        <li><b>Session Timing:</b> {program.programTiming}</li>
-                        <li><b>Language:</b> {program.selectLanguage}</li>
-                        <li><b>Program Fee:</b> {formatCurrency(fee1)} + {formatCurrency(fee2)} = {formatCurrency(totalFee)}</li>
+                    <ul className="mt-3 space-y-1 text-[#361A06] font-jakarta text-[14px]">
+                        {[
+                            { label: "Date", value: `${formatDate(program.startDate)} - ${formatDate(program.endDate) || "09th Jan 2025"}` },
+                            { label: "Session Timing", value: program.programTiming },
+                            { label: "Language", value: program.selectLanguage },
+                            { label: "Program Fee", value: `${formatCurrency(fee1)} + ${formatCurrency(fee2)} = ${formatCurrency(totalFee)}` },
+                        ].map((item, index) => (
+                            <li key={index} className="grid grid-cols-[1fr_10px_2fr] items-start text-start ">
+                                <span className="font-bold text-[#361A06] ">
+                                    • {item.label}
+                                </span>
+                                <span className="text-start font-bold text-[#361A06]">:</span>
+                                <span className="text-[#361A06] text-start ml-2">{item.value}</span>
+                            </li>
+                        ))}
                     </ul>
+
                 </div>
 
                 {/* FAQ Section */}
@@ -71,7 +88,7 @@ const Combopopup = ({ onClose, program }) => {
                         {program.faq && program.faq.map((faq, index) => (
                             <div key={index} className="mb-2 border-2 border-[#361A0680] rounded-lg">
                                 <button
-                                    className="w-full text-left px-4 py-2 bg-gray-100 flex justify-between items-center"
+                                    className="w-full text-left px-4 py-2 bg-white flex justify-between items-center"
                                     onClick={() => toggleFAQ(index)}
                                 >
                                     {faq.question}
