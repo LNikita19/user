@@ -103,7 +103,7 @@ const OnlineClass = () => {
                             <h2 className="text-[24px] md:text-[28px] font-david font-bold mt-1">{classData.selectProgram}</h2>
 
                             {/* Details List */}
-                            <ul className="mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px]">
+                            <ul className="mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px] hidden lg:block">
                                 {[
                                     { label: "Date", value: `${formatDate(classData.startDate)} - ${formatDate(classData.endDate)}` },
                                     { label: "Session Timings", value: classData.programTiming },
@@ -118,6 +118,17 @@ const OnlineClass = () => {
                                         <span className="text-[#361A06] text-start ml-2">{item.value}</span>
                                     </li>
                                 ))}
+                            </ul>
+                            <ul className="lg:hidden mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px] list-disc pl-5">
+
+                                <li><b>Date:</b> {formatDate(classData.startDate)} - {formatDate(classData.endDate)}</li>
+
+                                <li><b>Session Timings:</b> {classData.programTiming}</li>
+
+                                <li><b>Language:</b> {classData.selectLanguage}</li>
+
+                                <li><b>Program Fee:</b> {classData.programFees}</li>
+
                             </ul>
                             {/* FAQ Section */}
                             <h3 className="mt-4 mb-4 text-lg font-david text-[20px] md:text-[24px] text-[#361A06] font-bold">

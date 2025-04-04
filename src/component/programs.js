@@ -255,7 +255,7 @@ const Programs = () => {
 
                                     {/* Linear Gradient Blur Overlay at Bottom */}
                                     <div
-                                        className="absolute bottom-0 left-0 w-full h-[80%]"
+                                        className="absolute bottom-0 left-0 w-full md:h-[80%] h-[50%]"
                                         style={{
                                             background:
                                                 "linear-gradient(0deg, rgba(255, 231, 133, 0.85) 41.5%, rgba(255, 255, 255, 0.05) 65.5%)",
