@@ -49,32 +49,39 @@ const About = () => {
 
     return (
         <>
-            <div className="bg-[#FFF4C0] font-david flex flex-col">
-                <div className="p-6 flex justify-center mt-8">
-                    <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-full md:w-[55%] flex flex-col md:flex-row items-center">
-                        <div className="md:w-1/2 text-start md:text-left px-6">
-                            <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
-                            <h1 className="md:text-[48px] text-[24px] font-bold mt-2">{aboutData.Heading}</h1>
-                            <p className="text-[#361A06] text-[20px] mt-2">{aboutData.Description}</p>
-                            <ul className="mt-4 list-disc list-inside space-y-1 text-[#361A06] text-[16px] md:text-[20px]">
-                                {aboutData.Points?.map((point, index) => (
-                                    <li key={index}>{point}</li>
-                                ))}
-                            </ul>
+            <div className="bg-[#FFF4C0] font-david flex flex-col min-h-screen p-6">
+                {/* Outer Spacing and Card */}
+                <div className="flex justify-center mt-8">
+                    <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-full md:w-[70%] flex flex-col md:flex-row  lg:items-stretch  lg:gap-4">
+
+                        {/* LEFT: Text Section */}
+                        <div className="md:w-1/2 w-full lg:px-6 p-0 flex flex-col justify-between">
+                            <div>
+                                <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
+                                <h1 className="md:text-[52px] text-[24px] font-bold leading-[1.1]">{aboutData.Heading}</h1>
+                                <p className="text-[#361A06] text-[20px] mt-2">{aboutData.Description}</p>
+                                <ul className="mt-4 list-disc list-inside space-y-1 text-[#361A06] text-[16px] md:text-[20px]">
+                                    {aboutData.Points?.map((point, index) => (
+                                        <li key={index}>{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
 
-                        {/* Image Carousel */}
-                        <div className="md:w-1/2 flex flex-col items-center relative mt-4 md:mt-0 min-h-[300px] md:min-h-[400px] w-full">
-                            <div className="relative w-72 md:w-11/12 h-72 md:h-80 overflow-hidden rounded-lg">
+                        {/* RIGHT: Image Carousel */}
+                        <div className="md:w-1/2 flex flex-col justify-between items-center relative md:min-h-[400px] w-full">
+                            {/* Image */}
+                            <div className="relative w-72 md:w-11/12 h-72 md:h-full overflow-hidden rounded-lg">
                                 {aboutData.PhotoCarousel?.map((img, index) => (
                                     <img
                                         key={index}
-                                        src={`data:image/jpeg;base64,${img}`} // Handle base64 images
+                                        src={`data:image/jpeg;base64,${img}`}
                                         alt="Yoga"
                                         className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
                                     />
                                 ))}
                             </div>
+
                             {/* Dots Indicator */}
                             <div className="flex justify-center space-x-2 mt-4">
                                 {aboutData.PhotoCarousel?.map((_, index) => (
@@ -89,21 +96,23 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-10 font-david lg:flex-row space-y-2 mb-10 justify-center items-center text-[#361A06] mt-10">
+
+
+                <div className="flex flex-col gap-10 font-david lg:flex-row space-y-2 mb-10 justify-center items-center text-[#361A06] mt-10 md:mt-16 space-x-0 md:space-x-20">
                     <div className="flex flex-col items-center mx-4">
-                        <img src="/Icon 1.png" alt="Healthy" className="w-16 h-16 mb-2" />
+                        <img src="/Icon 1.png" alt="Healthy" className="w-[120px] h-[120px] mb-2" />
                         <h1 className="font-bold text-[24px] md:text-[44px]">Healthy</h1>
-                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Lorem Ipsum is simply dummy text of the printing.Lorem Ipsum is simply dummy text of the printing.</p>
+                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Builds Strength and Alignment in the Body. Strengthens the spine, sinews, ligaments.</p>
                     </div>
                     <div className="flex flex-col items-center mx-4">
-                        <img src="/Icon 2.png" alt="Flexibility" className="w-16 h-16 mb-2" />
+                        <img src="/Icon 2.png" alt="Flexibility" className="w-[120px] h-[120px] mb-2" />
                         <h1 className="font-bold text-[24px] md:text-[44px]">Flexibility</h1>
-                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Lorem Ipsum is simply dummy text of the printing.Lorem Ipsum is simply dummy text of the printing.</p>
+                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Revitalizes the System Rejuvenates vital organs and elevates overall vitality.</p>
                     </div>
                     <div className="flex flex-col items-center mx-4">
-                        <img src="/Icon 3.png" alt="Balance" className="w-16 h-16 mb-2" />
+                        <img src="/Icon 3.png" alt="Balance" className="w-[120px] h-[120px] mb-2" />
                         <h1 className="font-bold text-[24px] md:text-[44px]">Balance</h1>
-                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Lorem Ipsum is simply dummy text of the printing.Lorem Ipsum is simply dummy text of the printing.</p>
+                        <p className="text-center md:text-[24px] text-[16px] font-normal max-w-xs">Balances Hormones and Metabolism Harmonizes hormonal function & promotes natural weight balance.</p>
                     </div>
                 </div>
             </div>

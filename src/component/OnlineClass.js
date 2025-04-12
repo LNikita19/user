@@ -49,9 +49,12 @@ const OnlineClass = () => {
     }
 
     return (
-        <div className="bg-[#FFF4C0] h-auto flex flex-col items-center py-10 px-5 rounded-lg">
+        <div className="bg-[#FFF4C0] h-full pb-24 flex flex-col items-center py-10 px-5 rounded-lg">
             <p className='text-[#FD8531] font-bold md:text-[24px] text-[20px] font-david uppercase'>Online  Classes</p>
-            <h1 className='text-[#361A06] md:text-[64px]  text-[32px] font-david font-bold text-center mb-6'>Discover & Register<br />For Our Online Classes</h1>
+            <h1 className='text-[#361A06] md:text-[64px] text-[32px] font-david font-bold text-center mb-6 leading-[1.1]'>
+                <span>Discover & Register</span><br />
+                <span>For Our Online Classes</span>
+            </h1>
 
             <div className="border-2 border-[#361A0680] p-6 rounded-xl">
                 <div className="bg-white rounded-xl shadow-lg p-5 max-w-4xl w-full ">
@@ -77,8 +80,8 @@ const OnlineClass = () => {
 
             {/* Popup Modal */}
             {showPopup && (
-                <div className="fixed z-50 inset-0 bg-[#FFFFFF]  flex items-center justify-center p-8">
-                    <div className="border-2 border-[#ecd8ca80] p-8 rounded-xl">
+                <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 p-4">
+                    <div className="border-2 border-[#361A0680] lg:p-6 p-4 rounded-xl">
                         <div className=" py-4 px-8 rounded-lg w-full max-w-xl max-h-[150vh] overflow-auto bg-white shadow-xl relative">
                             {/* Close Button */}
                             <button
@@ -131,7 +134,7 @@ const OnlineClass = () => {
 
                             </ul>
                             {/* FAQ Section */}
-                            <h3 className="mt-4 mb-4 text-lg font-david text-[20px] md:text-[24px] text-[#361A06] font-bold">
+                            <h3 className="mt-4 mb-4 text-lg font-david text-[20px] md:text-[24px] text-[#361A06] whitespace-nowrap font-bold">
                                 FAQs (Important Please Read)
                             </h3>
                             <div className="mt-2 text-[#361A06]">

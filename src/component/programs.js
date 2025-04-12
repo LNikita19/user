@@ -195,28 +195,32 @@ const Programs = () => {
             {/* Header Section */}
             <div className="text-center font-david">
                 <p className="text-[#FD8531] font-david md:text-[24px] text-[16px] font-bold uppercase">Our Classes</p>
-                <h1 className="text-[#361A06] md:text-[64px] text-[32px] font-bold mt-2">
-                    Discover & Register <br /> For Our Classes
+                <h1 className='text-[#361A06] md:text-[64px] text-[32px] font-david font-bold text-center mb-6 leading-[1.1]'>
+                    <span>Discover & Register</span><br />
+                    <span>For Our  Classes</span>
                 </h1>
             </div>
-            <div className="flex flex-col items-center space-y-4 sm:space-y-2 ml-0 lg:ml-[-36rem]">
-                <h1 className="text-[#361A06] font-david text-[32px] text-center">Sort by</h1>
-                <div className="flex flex-row lg:justify-center gap-2 md:gap-4 ">
+            <div className="flex flex-col gap-2 mb-8 max-w-[68rem] mx-auto px-4">
+                <h1 className="text-[#361A06] font-david text-[20px] md:text-[24px]">Sort by:</h1>
+
+                <div className="flex flex-wrap gap-2">
                     {["program", "month", "language"].map((type) => (
                         <button
                             key={type}
-                            className={`flex items-center md:p-4 p-2 md:text-[20px] text-[16px] rounded-md bg-[#FDF7C4] ${sortBy === type ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === type ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
                                 }`}
                             onClick={() => setSortBy(type)}
                         >
                             {type.charAt(0).toUpperCase() + type.slice(1)}
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <img className="h-4 w-4 ml-2" src="/Vector.svg" alt="Arrow Icon" />
                         </button>
                     ))}
                 </div>
             </div>
+
+
+
+
 
             {/* Loading State */}
             {isLoading && (
@@ -255,7 +259,7 @@ const Programs = () => {
 
                                     {/* Linear Gradient Blur Overlay at Bottom */}
                                     <div
-                                        className="absolute bottom-0 left-0 w-full md:h-[80%] h-[50%]"
+                                        className="absolute bottom-0 left-0 w-full md:h-[95%] h-[85%]"
                                         style={{
                                             background:
                                                 "linear-gradient(0deg, rgba(255, 231, 133, 0.85) 41.5%, rgba(255, 255, 255, 0.05) 65.5%)",

@@ -61,6 +61,13 @@ const ImageSlider = () => {
 
     return (
         <div className="relative w-full max-w-5xl mx-auto">
+            {/* Gradient Overlays */}
+            <div className="absolute left-0 top-0 h-full w-16 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
+            />
+            <div className="absolute right-0 top-0 h-full w-16 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
+            />
             {/* Image Container */}
             <div className="flex overflow-hidden justify-start">
                 <div

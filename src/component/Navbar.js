@@ -36,7 +36,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="relative w-full md:min-h-screen min-h-[90vh]">
+        <div className="relative w-full md:min-h-screen min-h-[70vh] overflow-hidden">
             {/* Background Image */}
             <img
                 src="/Background.png"
@@ -46,7 +46,7 @@ const Navbar = () => {
 
             {/* Navbar */}
             <div className="absolute  w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
-                <img src="/Logo.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
+                <img src="/Logo 1.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
                 <button
                     className="font-PlusJakartaSans font-bold hidden lg:block bg-[#361A06] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
                     onClick={() => {
@@ -101,7 +101,7 @@ const Navbar = () => {
 
             </div>
             {/* Person & Round Background */}
-            <div className="absolute  bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <div className="absolute  bottom-0 left-1/2 lg:transform -translate-x-1/2 flex flex-col items-center">
                 {/* <img
                     src="/rounds.png"
                     alt="Round Background"
@@ -110,7 +110,7 @@ const Navbar = () => {
                 <img
                     src="/person.webp"
                     alt="Person"
-                    className="relative z-10  w-[500px] md:w-[500px] lg:w-[600px]"
+                    className="relative z-10  w-full md:w-[500px] lg:w-[600px]"
                 />
             </div>
         </div>

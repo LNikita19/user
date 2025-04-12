@@ -69,13 +69,15 @@ const Footer = () => {
 
                 {/* Right Side - Contact Info */}
                 <div className="text-center md:text-left mt-10 md:mt-0">
-                    <h3 className="md:text-[56px] font-bold font-david">Contact Us!</h3>
-                    <p className="text-[#FFF9E180] font-normal text-[20px]">Everyday 8:00 - 20:00</p>
+                    <h3 className="md:text-[56px] text-[32px] font-bold font-david">Contact Us!</h3>
+                    <p className="text-[#FFF9E180] font-normal md:text-[20px]">Everyday 8:00 - 20:00</p>
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
                         <span className="bg-orange-400 p-3 rounded-xl">
                             <MdLocationOn className="text-white text-xl" />
                         </span>
-                        <p className="text-[#FFF9E1] font-normal font-jakarta  tex-[16px] md:text-[20px]">{footerData.location}</p>
+                        <p className="text-[#FFF9E1] font-normal font-jakarta text-[18px] md:text-[20px] break-words">
+                            {footerData.location}
+                        </p>
                     </div>
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
                         <span className="bg-orange-400 p-3 rounded-xl">
@@ -105,7 +107,7 @@ const Footer = () => {
                 <hr className="border-[#FFF9E1] w-full mx-auto mb-4" />
 
                 {/* Text in a row */}
-                <div className="flex flex-row justify-around items-center w-full px-4 md:space-x-0 space-x-4">
+                <div className="flex flex-col lg:flex-row justify-around items-center w-full px-4 md:space-x-0 space-x-4">
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap">
                         Shyama Yoga Studio
                     </p>
