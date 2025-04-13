@@ -9,6 +9,8 @@ const Navbar = () => {
     const [mainHeading, setMainHeading] = useState("");
     const [description, setDescription] = useState("");
     const [showPopup, setShowPopup] = useState(false);
+    const [showContact, setShowContact] = useState(false);
+
     useEffect(() => {
         getHeroData();
     }, []);
@@ -36,13 +38,14 @@ const Navbar = () => {
     };
 
     return (
-        <div className="relative w-full md:min-h-screen min-h-[70vh] overflow-hidden">
+        <div className="relative w-full md:min-h-screen min-h-[90vh] overflow-hidden">
             {/* Background Image */}
             <img
                 src="/Background.png"
                 alt="Background"
                 className="absolute w-full h-full object-cover"
             />
+
 
             {/* Navbar */}
             <div className="absolute  w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
@@ -101,7 +104,7 @@ const Navbar = () => {
 
             </div>
             {/* Person & Round Background */}
-            <div className="absolute  bottom-0 left-1/2 lg:transform -translate-x-1/2 flex flex-col items-center">
+            <div className="hidden lg:block absolute  bottom-0 left-1/2 lg:transform -translate-x-1/2 flex flex-col items-center">
                 {/* <img
                     src="/rounds.png"
                     alt="Round Background"
@@ -112,7 +115,42 @@ const Navbar = () => {
                     alt="Person"
                     className="relative z-10  w-full md:w-[500px] lg:w-[600px]"
                 />
+
             </div>
+
+            <div className="lg:hidden block relative z-0 flex justify-center mt-6 md:mt-12 ">
+                <img
+                    src="/person.webp"
+                    alt="Person"
+                    className="w-[80%] md:w-[50%] max-w-[400px]"
+                />
+
+                {/* Phone Icon */}
+                <button
+                    onClick={() => setShowContact(true)}
+                    className="lg:hidden block absolute right-5 bottom-5 md:right-10 md:bottom-10 bg-brown-700 p-3 rounded-full shadow-lg z-20"
+                >
+                    <img src="/Phone.png" alt="Call" className="w-6 h-6" />
+                </button>
+            </div>
+
+
+            {/* Contact Popup */}
+            {showContact && (
+                <>
+                    {/* Blurred Backdrop */}
+                    <div
+                        className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
+                        onClick={() => setShowContact(false)}
+                    />
+
+                    {/* Popup Container */}
+                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                        <ContactPopup onClose={() => setShowContact(false)} />
+                    </div>
+                </>
+            )}
+
         </div>
     );
 };

@@ -114,3 +114,108 @@ const ImageSlider = () => {
 };
 
 export default ImageSlider;
+
+
+
+
+
+// import React, { useState, useEffect, useRef } from "react";
+// import axios from "axios";
+// import { API_BASE_URL } from "../config";
+
+// const defaultImages = [
+//     "/image1.png",
+//     "/Image2.png",
+//     "/Image3.png",
+//     "/Image1.png",
+//     "/Image2.png",
+//     "/image3.png"
+// ];
+
+// const ImageSlider = () => {
+//     const [index, setIndex] = useState(0);
+//     const [uploadedImages, setUploadedImages] = useState([]);
+//     const [loading, setLoading] = useState(true);
+//     const sliderRef = useRef(null);
+//     const intervalTime = 3000; // Time in milliseconds for auto scroll
+//     const scrollAmount = 0.5; // Percentage of the container width to scroll at a time
+
+//     useEffect(() => {
+//         const fetchImages = async () => {
+//             try {
+//                 const response = await axios.get(`${API_BASE_URL}/getImageDataData`);
+//                 if (response.data.status && response.data.data.length > 0) {
+//                     setUploadedImages(response.data.data.map(img => img.Photo));
+//                 }
+//             } catch (error) {
+//                 console.error("Error fetching images:", error);
+//             } finally {
+//                 setLoading(false);
+//             }
+//         };
+
+//         fetchImages();
+//     }, []);
+
+//     useEffect(() => {
+//         const intervalId = setInterval(() => {
+//             if (sliderRef.current) {
+//                 const containerWidth = sliderRef.current.offsetWidth;
+//                 sliderRef.current.scrollLeft += containerWidth * scrollAmount;
+
+//                 // Check if we've reached the end and need to loop
+//                 const scrollLeft = sliderRef.current.scrollLeft;
+//                 const scrollWidth = sliderRef.current.scrollWidth;
+//                 const threshold = scrollWidth - containerWidth - 1; // Small buffer
+
+//                 if (scrollLeft > threshold) {
+//                     sliderRef.current.scrollLeft = 0;
+//                 }
+//             }
+//         }, intervalTime);
+
+//         return () => clearInterval(intervalId); // Cleanup on unmount
+//     }, [uploadedImages, loading]);
+
+//     const getImagesToDisplay = () => {
+//         return uploadedImages.length > 0 ? [...uploadedImages, ...uploadedImages] : [...defaultImages, ...defaultImages];
+//     };
+
+//     if (loading) {
+//         return <div className="text-center py-8">Loading images...</div>;
+//     }
+
+//     const imagesToDisplay = getImagesToDisplay();
+
+//     return (
+//         <div className="relative w-full max-w-5xl mx-auto">
+//             {/* Gradient Overlays */}
+//             <div className="absolute left-0 top-0 h-full w-16 z-10 pointer-events-none"
+//                 style={{ background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
+//             />
+//             <div className="absolute right-0 top-0 h-full w-16 z-10 pointer-events-none"
+//                 style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
+//             />
+//             {/* Image Container */}
+//             <div ref={sliderRef} className="flex overflow-x-auto scroll-smooth">
+//                 <div className="flex transition-transform duration-500 ease-in-out gap-4">
+//                     {imagesToDisplay.map((src, i) => (
+//                         <img
+//                             key={i}
+//                             src={src}
+//                             alt={`Slide ${i + 1}`}
+//                             className="w-1/2 sm:w-[calc(50%-16px)] md:w-[calc(50%-16px)] lg:w-[calc(50%-16px)] xl:w-[calc(50%-16px)] object-cover rounded-lg shadow-md transform transition-all duration-300 hover:scale-105 min-w-[calc(50%-16px)]"
+//                             onError={(e) => {
+//                                 if (uploadedImages.includes(src.split('/').pop())) { // Check filename for uploaded images
+//                                     e.target.src = defaultImages[i % defaultImages.length];
+//                                 }
+//                             }}
+//                         />
+//                     ))}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default ImageSlider;

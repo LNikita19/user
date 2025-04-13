@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactPopup1 = ({ onClose }) => {
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm bg-black/30 p-4">
             <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md relative">
                 <button className="absolute top-4 right-4 text-[#361A06]" onClick={onClose}>✖</button>
                 <h2 className="text-center font-bold text-[#FD8531] text-lg">SHYAMA YOGA STUDIO</h2>

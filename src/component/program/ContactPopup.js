@@ -40,7 +40,7 @@ const ContactPopup = ({ onClose }) => {
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4 backdrop-blur-sm bg-black/30">
             <div className="bg-[#FFF9E1] rounded-3xl shadow-lg w-full md:max-w-4xl relative flex flex-col md:flex-row">
 
                 {/* Close Button */}

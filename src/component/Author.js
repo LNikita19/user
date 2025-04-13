@@ -48,7 +48,7 @@ const Author = () => {
                 <img
                     src={image || "/main.webp"}
                     alt="Round Background"
-                    className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-16 mt-16  mb-0  -opacity-10 "
+                    className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-16 mt-8  mb-0 z-0 -opacity-10 "
                 />
                 {/* <img
                         src="/Person.png"
