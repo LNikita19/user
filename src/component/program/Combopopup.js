@@ -73,7 +73,7 @@ const Combopopup = ({ onClose, program }) => {
                                 { label: "Language", value: program.selectLanguage },
                                 {
                                     label: "Program Fee",
-                                    value: `${formatCurrency(fee1)} + ${formatCurrency(fee2)} = ${formatCurrency(totalFee)}`
+                                    value: `${formatCurrency(fee1)} INR + ${formatCurrency(fee2)} INR = ${formatCurrency(totalFee)} INR`
                                 },
                             ].map((item, index) => (
                                 <li
@@ -106,23 +106,29 @@ const Combopopup = ({ onClose, program }) => {
                                         {faq.question}
                                         <span className="text-xs text-[#361A06B2]">{openFAQ === index ? "▲" : "▼"}</span>
                                     </button>
-                                    {openFAQ === index && <p className="px-4 py-2 bg-white border-t">{faq.answer}</p>}
-                                </div>
+                                    {openFAQ === index && (
+                                        <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
+                                            {faq.answer.split("•").map((point, i) =>
+                                                point.trim() && <li key={i}>{point.trim()}</li>
+                                            )}
+                                        </ul>
+                                    )}                                </div>
                             ))}
                         </div>
                     </div>
 
                     {/* Buttons */}
-                    <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-2">
+                    <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-4">
                         {/* Contact Us Button */}
+                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
+                            Register Now
+                        </button>
                         <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 rounded-lg" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
 
                         {/* Register Now Button (Opens Google Form) */}
-                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
-                            Register Now
-                        </button>
+
                     </div>
                 </div>
             </div>

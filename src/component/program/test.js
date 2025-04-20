@@ -52,7 +52,11 @@ const PopupProgram = ({ onClose, program }) => {
                                 <span className="text-xs text-[#361A06B2]">{openFAQ === index ? "▲" : "▼"}</span>
                             </button>
                             {openFAQ === index && (
-                                <p className="px-4 py-2 bg-white border-t">{faq.answer}</p>
+                                <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
+                                    {faq.answer.split("•").map((point, i) =>
+                                        point.trim() && <li key={i}>{point.trim()}</li>
+                                    )}
+                                </ul>
                             )}
                         </div>
                     ))}

@@ -276,13 +276,19 @@ const Programs = () => {
                                         </div>
                                     )}
                                     {/* Text & Button Over Gradient */}
-                                    <div className="absolute bottom-6 left-4 right-4 text-[#361A06] z-10 font-jakarta">
-                                        <h2 className="font-extrabold text-[24px]">{program.selectProgram || program.title}</h2>
-                                        <p className="text-[14px] font-bold mt-1">{program.Description || program.description}</p>
+                                    <div className="absolute bottom-4 left-4 right-4 text-[#361A06] z-10 font-jakarta">
+                                        <div className="flex flex-col gap-2">
+                                            <h2 className="font-bold text-[24px] text-[#361A06] leading-tight">
+                                                {program.selectProgram || program.title}
+                                            </h2>
+                                            <p className="text-[14px] font-medium line-clamp-3">
+                                                {program.Description || program.description}
+                                            </p>
 
-                                        {/* Know More Button */}
+                                            {/* Know More Button */}
+                                        </div>
                                         <button
-                                            className="mt-4 bg-[#361A06] text-white py-2 px-4 rounded-full flex items-center text-[14px] font-semibold gap-2"
+                                            className="bg-[#361A06] text-white py-2 px-4 rounded-full mt-2 flex items-center justify-center text-[14px] font-semibold gap-2"
                                             onClick={() => handleKnowMoreClick(program, program.type === 'combo')}
                                         >
                                             Know More
@@ -290,6 +296,7 @@ const Programs = () => {
                                         </button>
                                     </div>
                                 </div>
+
                             ))}
                         </div>
                     </div>

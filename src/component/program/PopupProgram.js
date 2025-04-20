@@ -71,7 +71,10 @@ const PopupProgram = ({ onClose, program }) => {
                                         • {item.label}
                                     </span>
                                     <span className="text-start font-bold text-[#361A06]">:</span>
-                                    <span className="text-[#361A06] text-start">{item.value}</span>
+                                    {/* <span className="text-[#361A06] text-start">{item.value}</span> */}
+                                    <span className="text-[#361A06] text-start">
+                                        {item.label === "Program Fee" ? `${item.value} INR` : item.value}
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -93,23 +96,30 @@ const PopupProgram = ({ onClose, program }) => {
                                     <span className="text-xs text-[#361A06B2]">{openFAQ === index ? "▲" : "▼"}</span>
                                 </button>
                                 {openFAQ === index && (
-                                    <p className="px-4 py-2 bg-white border-t">{faq.answer}</p>
+                                    <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
+                                        {faq.answer.split("•").map((point, i) =>
+                                            point.trim() && <li key={i}>{point.trim()}</li>
+                                        )}
+                                    </ul>
                                 )}
+
                             </div>
                         ))}
                     </div>
 
                     {/* Buttons */}
-                    <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-2">
+                    <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-4">
                         {/* Contact Us Button */}
+
+                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
+                            Register Now
+                        </button>
                         <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 bg-[#FFF9E1] rounded-xl" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
 
                         {/* Register Now Button (Opens Google Form) */}
-                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
-                            Register Now
-                        </button>
+
                     </div>
                 </div>
 

@@ -118,8 +118,9 @@ const OnlineClass = () => {
                                             • {item.label}
                                         </span>
                                         <span className="text-start font-bold text-[#361A06]">:</span>
-                                        <span className="text-[#361A06] text-start ml-2">{item.value}</span>
-                                    </li>
+                                        <span className="text-[#361A06] text-start ml-2">
+                                            {item.label === "Program Fee" ? `${item.value} INR` : item.value}
+                                        </span>                                    </li>
                                 ))}
                             </ul>
                             <ul className="lg:hidden mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px] list-disc pl-5">
@@ -129,8 +130,10 @@ const OnlineClass = () => {
                                 <li><b>Session Timings:</b> {classData.programTiming}</li>
 
                                 <li><b>Language:</b> {classData.selectLanguage}</li>
+                                <li><b>Program Fee:</b>  {classData.programFees}INR</li>
 
-                                <li><b>Program Fee:</b> {classData.programFees}</li>
+
+                                {/* <li><b>Program Fee:</b> {classData.programFees}</li> */}
 
                             </ul>
                             {/* FAQ Section */}
@@ -148,7 +151,11 @@ const OnlineClass = () => {
                                             <div className="flex flex-col w-full">
                                                 <span className="text-[#361A06B2]">{faq.question}</span>
                                                 {openFAQ === index && (
-                                                    <span className="mt-2 text-[#361A06B2] text-[14px]">{faq.answer}</span>
+                                                    <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
+                                                        {faq.answer.split("•").map((point, i) =>
+                                                            point.trim() && <li key={i}>{point.trim()}</li>
+                                                        )}
+                                                    </ul>
                                                 )}
                                             </div>
                                             <span className="text-sm">{openFAQ === index ? "▲" : "▼"}</span>
@@ -188,7 +195,6 @@ const OnlineClass = () => {
                 </div>
             )}
 
-            <Author />
         </div>
     );
 };

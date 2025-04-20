@@ -38,7 +38,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="relative w-full md:min-h-screen min-h-[90vh] overflow-hidden">
+        <div className="relative w-full md:min-h-screen min-h-screen overflow-hidden">
             {/* Background Image */}
             <img
                 src="/Background.png"
@@ -128,9 +128,9 @@ const Navbar = () => {
                 {/* Phone Icon */}
                 <button
                     onClick={() => setShowContact(true)}
-                    className="lg:hidden block absolute right-5 bottom-5 md:right-10 md:bottom-10 bg-brown-700 p-3 rounded-full shadow-lg z-20"
+                    className="lg:hidden block absolute right-2 bottom-5 md:right-12 md:bottom-10 bg-brown-700 p-3 rounded-full  z-20"
                 >
-                    <img src="/Phone.png" alt="Call" className="w-6 h-6" />
+                    <img src="/Phone.png" alt="Call" className="w-12 h-12" />
                 </button>
             </div>
 
