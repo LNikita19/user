@@ -49,7 +49,7 @@ const OnlineClass = () => {
     }
 
     return (
-        <div className="bg-[#FFF4C0] h-full pb-24 flex flex-col items-center py-10 px-5 rounded-lg">
+        <div className="bg-[#FFF4C0] h-full flex flex-col items-center py-10 px-5 rounded-lg">
             <p className='text-[#FD8531] font-bold md:text-[24px] text-[20px] font-david uppercase'>Online  Classes</p>
             <h1 className='text-[#361A06] md:text-[64px] text-[32px] font-david font-bold text-center mb-6 leading-[1.1]'>
                 <span>Discover & Register</span><br />

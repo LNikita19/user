@@ -60,56 +60,10 @@ const ImageSlider = () => {
     const adjustedIndex = index % imagesToDisplay.length;
 
     return (
-        <div className="relative w-full max-w-5xl mx-auto">
-            {/* Gradient Overlays */}
-            <div className="absolute left-0 top-0 h-full w-16 z-10 pointer-events-none"
-                style={{ background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
-            />
-            <div className="absolute right-0 top-0 h-full w-16 z-10 pointer-events-none"
-                style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
-            />
-            {/* Image Container */}
-            <div className="flex overflow-hidden justify-start">
-                <div
-                    className="flex transition-transform duration-500 ease-in-out gap-4"
-                    style={{ transform: `translateX(-${adjustedIndex * 50}%)` }}
-                >
-                    {imagesToDisplay.map((src, i) => (
-                        <img
-                            key={i}
-                            src={src}
-                            alt={`Slide ${i + 1}`}
-                            className="w-1/2 gap-8 object-cover rounded-lg shadow-md transform transition-all duration-300 hover:scale-105"
-                            onError={(e) => {
-                                if (uploadedImages.includes(src)) {
-                                    e.target.src = defaultImages[i % defaultImages.length];
-                                }
-                            }}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            {/* Circular Navigation Buttons */}
-            <div className="flex justify-center items-center gap-4 mt-6 mb-12">
-                <button
-                    onClick={prevSlide}
-                    className="w-12 h-12 flex items-center justify-center bg-[#361A06] text-white rounded-full hover:bg-[#4A2810] transition-all duration-300 shadow-lg"
-                    aria-label="Previous slide"
-                >
-                    <FaCaretLeft className="text-white text-3xl" />
-                </button>
-
-                <button
-                    onClick={nextSlide}
-                    className="w-12 h-12 flex items-center justify-center bg-[#361A06] text-white rounded-full hover:bg-[#4A2810] transition-all duration-300 shadow-lg"
-                    aria-label="Next slide"
-                >
-                    <FaCaretRight className="text-white text-3xl" />
-                </button>
-
-            </div>
-        </div>
+        <>
+        
+        </>
+       
     );
 };
 

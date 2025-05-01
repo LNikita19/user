@@ -54,10 +54,10 @@ const ContactPopup = ({ onClose }) => {
                 {/* Left Side - Form */}
                 <div className="w-full md:w-1/2 p-6 font-david">
                     {/* Logo */}
-                    <img src="/Logo 1.png" alt="Logo" className="w-32 mb-4" />
+                    <img src="/logo1.png" alt="Logo" className="w-32 mb-4" />
 
-                    <h2 className="text-[32px] text-[#361A06] font-extrabold">Got a question?</h2>
-                    <p className="text-[32px] text-[#361A06] font-extrabold">Contact us...</p>
+                    <h2 className="text-[32px] text-[#361A06] leading-[1.1] font-extrabold">Got a question?</h2>
+                    <p className="text-[32px] text-[#361A06] leading-[1.1] font-extrabold">Contact us...</p>
 
                     <form onSubmit={handleSubmit} className="mt-4  space-y-4 font-david lg:space-y-8">
                         {/* Fields will stack on small screens and be side-by-side on md+ */}

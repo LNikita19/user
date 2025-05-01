@@ -118,7 +118,7 @@ const Navbar = () => {
 
             </div>
 
-            <div className="lg:hidden block relative z-0 flex justify-center mt-6 md:mt-12 ">
+            <div className="lg:hidden block relative flex justify-center mt-6 md:mt-12 ">
                 <img
                     src="/person.webp"
                     alt="Person"
@@ -128,7 +128,7 @@ const Navbar = () => {
                 {/* Phone Icon */}
                 <button
                     onClick={() => setShowContact(true)}
-                    className="lg:hidden block absolute right-2 bottom-5 md:right-12 md:bottom-10 bg-brown-700 p-3 rounded-full  z-20"
+                    className="lg:hidden block md:right-12 md:bottom-10 bg-brown-700 p-3 rounded-full fixed right-0 bottom-24 lg:bottom-32 hover:scale-105 z-50"
                 >
                     <img src="/Phone.png" alt="Call" className="w-12 h-12" />
                 </button>

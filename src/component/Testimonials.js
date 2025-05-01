@@ -65,9 +65,9 @@ const Testimonials = () => {
             </div>
 
             {/* Testimonials Grid */}
-            <div className="relative max-w-screen-lg mx-auto">
+            <div className="z-0 relative max-w-screen-lg mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 font-jakarta gap-6 max-w-screen-lg mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 mt-8 lg:mt-1 lg:grid-cols-3 font-jakarta gap-6 max-w-screen-lg mx-auto">
                     {/* {testimonials.map((testimonial, index) => (
                     <div
                         key={testimonial._id}
@@ -108,10 +108,10 @@ const Testimonials = () => {
                                     />
                                     <div>
                                         <h3 className="text-[18px] text-[#361A06] font-semibold">{testimonial.Name}</h3>
-                                        <p className="text-[16px] font-normal text-[#6B7280]">{testimonial.profession}</p>
+                                        <p className="text-[16px] font-medium text-[#6B7280]">{testimonial.profession}</p>
                                     </div>
                                 </div>
-                                <p className="mt-3 text-[#361A06] text-[16px]">{testimonial.comment}</p>
+                                <p className="mt-3 text-[#361A06] font-medium	 text-[16px]">{testimonial.comment}</p>
                             </div>
 
                             {/* Bottom Gradient Overlay */}

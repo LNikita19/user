@@ -281,7 +281,7 @@ const Programs = () => {
                                             <h2 className="font-bold text-[24px] text-[#361A06] leading-tight">
                                                 {program.selectProgram || program.title}
                                             </h2>
-                                            <p className="text-[14px] font-medium line-clamp-3">
+                                            <p className="text-[14px] font-semibold	line-clamp-3">
                                                 {program.Description || program.description}
                                             </p>
 

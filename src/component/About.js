@@ -56,15 +56,29 @@ const About = () => {
 
                         {/* LEFT: Text Section */}
                         <div className="md:w-1/2 w-full lg:px-6 p-0 flex flex-col justify-between">
-                            <div>
-                                <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
+                            {/* <div>
+                                <h2 className="text-[#D17A0E] uppercase  md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
                                 <h1 className="md:text-[52px] text-[32px] font-bold leading-[1.1]">{aboutData.Heading}</h1>
-                                <p className="text-[#361A06] text-[16px] md:text-[20px] mt-2">{aboutData.Description}</p>
+                                <p className="text-[#361A06] text-[16px] md:text-[20px] font-normal mt-2">{aboutData.Description}</p>
                                 {/* <ul className="mt-4 list-disc list-inside space-y-1 text-[#361A06] text-[16px] md:text-[20px]">
                                     {aboutData.Points?.map((point, index) => (
                                         <li key={index}>{point}</li>
                                     ))}
                                 </ul> */}
+                            {/* </div> */}
+                            <div>
+                                <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
+                                <h1 className="md:text-[52px] text-[32px] font-bold leading-[1.1]">{aboutData.Heading}</h1>
+                                <div className="text-[#361A06] text-[16px] md:text-[20px] font-normal mt-2 space-y-4">
+                                    {aboutData.Description?.split(/\.\s+/).map((sentence, index, arr) => (
+                                        sentence.trim() && (
+                                            <p key={index} className={index < arr.length - 1 ? "mb-4 last:mb-0" : ""}>
+                                                {sentence.trim()}
+                                                {index < arr.length - 1 && "."} {/* Add period except for last sentence */}
+                                            </p>
+                                        )
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
@@ -114,13 +128,13 @@ const About = () => {
                     }].map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-xs  p-4 ">
                             <img src={item.icon} alt={item.title} className="w-[120px] h-[120px] mb-4" />
-                            <h1 className="font-bold text-[24px] md:text-[38px] mb-2">{item.title}</h1>
+                            <h1 className="font-bold text-[24px] md:text-[44px] mb-2">{item.title}</h1>
                             <p className="text-[16px] md:text-[24px] font-normal">{item.desc}</p>
                         </div>
                     ))}
                 </div>
 
-            </div>
+            </div >
 
 
         </>
