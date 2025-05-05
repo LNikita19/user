@@ -107,7 +107,6 @@
 
 // export default Programs;
 import React, { useState, useEffect } from "react";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import PopupProgram from "./program/PopupProgram";
 import Combopopup from "./program/Combopopup";
 import axios from "axios";
@@ -116,26 +115,49 @@ import { API_BASE_URL } from "../config";
 const Programs = () => {
     const [programs, setPrograms] = useState([]);
     const [comboPrograms, setComboPrograms] = useState([]);
-    const [selectedProgram, setSelectedProgram] = useState(null);
+    const [selectedProgramDetails, setSelectedProgramDetails] = useState(null);
     const [isCombo, setIsCombo] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [existingPrograms, setExistingPrograms] = useState([]);
     const [sortBy, setSortBy] = useState("");
-    const [visibleCount, setVisibleCount] = useState(4); // Show only 4 cards initially
+    const [allPrograms, setAllPrograms] = useState([]);
+    const [showProgramDropdown, setShowProgramDropdown] = useState(false);
+    const [selectedDropdownProgramId, setSelectedDropdownProgramId] = useState(null);
+    const [showMonthDropdown, setShowMonthDropdown] = useState(false);
+    const [selectedMonth, setSelectedMonth] = useState("");
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [filteredPrograms, setFilteredPrograms] = useState([]);
+    const [availableMonths, setAvailableMonths] = useState([]);
+    const [availableLanguages, setAvailableLanguages] = useState([]);
 
     useEffect(() => {
         const fetchAllPrograms = async () => {
             setIsLoading(true);
             try {
-                const [regularResponse, comboResponse, existingResponse] = await Promise.all([
+                const [regularResponse, comboResponse] = await Promise.all([
                     axios.get(`${API_BASE_URL}/getprogramData`),
                     axios.get(`${API_BASE_URL}/getComboPrograms`),
-                    axios.get(`${API_BASE_URL}/getExistingPrograms`) // ✅ Fetch Existing Programs
                 ]);
 
                 setPrograms(regularResponse.data.data || []);
                 setComboPrograms(comboResponse.data.data || []);
-                setExistingPrograms(existingResponse.data.data || []); // ✅ Store existing programs
+                const combined = [
+                    ...(regularResponse.data.data || []).map(p => ({ ...p, type: 'regular' })),
+                    ...(comboResponse.data.data || []).map(p => ({ ...p, type: 'combo' })),
+                ];
+                setAllPrograms(combined);
+
+                // Extract available months and languages
+                const months = [...new Set(combined.map(p => {
+                    if (p.startDate) {
+                        return new Date(p.startDate).toLocaleString('default', { month: 'long' });
+                    }
+                    return null;
+                }).filter(Boolean))];
+                setAvailableMonths(months);
+
+                const languages = [...new Set(combined.map(p => p.selectLanguage).filter(Boolean))];
+                setAvailableLanguages(languages);
 
             } catch (error) {
                 console.error("Error fetching programs:", error);
@@ -144,9 +166,36 @@ const Programs = () => {
             }
         };
 
-
         fetchAllPrograms();
     }, []);
+
+    useEffect(() => {
+        let filtered = [...allPrograms];
+
+        if (sortBy === "program" && selectedDropdownProgramId) {
+            filtered = allPrograms.filter(p => p._id === selectedDropdownProgramId);
+            const selectedProgram = allPrograms.find(p => p._id === selectedDropdownProgramId);
+            if (selectedProgram?.startDate) {
+                setSelectedMonth(new Date(selectedProgram.startDate).toLocaleString('default', { month: 'long' }));
+            } else {
+                setSelectedMonth("");
+            }
+            setSelectedLanguage(selectedProgram?.selectLanguage || "");
+        } else if (sortBy === "month" && selectedMonth) {
+            filtered = allPrograms.filter(p => {
+                if (p.startDate) {
+                    return new Date(p.startDate).toLocaleString('default', { month: 'long' }) === selectedMonth;
+                }
+                return false;
+            });
+        } else if (sortBy === "language" && selectedLanguage) {
+            filtered = allPrograms.filter(p => p.selectLanguage === selectedLanguage);
+        } else if (!sortBy) {
+            filtered = [...allPrograms];
+        }
+
+        setFilteredPrograms(filtered);
+    }, [sortBy, selectedDropdownProgramId, selectedMonth, selectedLanguage, allPrograms]);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -154,41 +203,56 @@ const Programs = () => {
         return date.toLocaleDateString('en-US', options);
     };
 
-    const handleKnowMoreClick = (program, isComboProgram = false) => {
-        setIsCombo(isComboProgram);
-        setSelectedProgram(program);
+    const handleProgramClick = (program) => {
+        setSelectedProgramDetails(program);
+        setIsCombo(program.type === 'combo');
     };
 
-    // Combine both program types for display
-    const allPrograms = [
-        ...programs.map(p => ({ ...p, type: 'regular' })),
-        ...comboPrograms.map(p => ({ ...p, type: 'combo' })),
-        ...existingPrograms.map(p => ({ ...p, type: 'existing' })) // ✅ Include existing programs
-    ];
-    const scrollCards = (scrollOffset) => {
-        const container = document.querySelector('.overflow-x-auto');
-        if (container) {
-            container.scrollBy({
-                left: scrollOffset,
-                behavior: 'smooth'
-            });
-        }
+    const handleSortBy = (type) => {
+        setSortBy(type);
+        setSelectedProgramDetails(null);
+        setSelectedDropdownProgramId(null);
+        setShowProgramDropdown(false);
+        setShowMonthDropdown(false);
+        setSelectedMonth("");
+        setShowLanguageDropdown(false);
+        setSelectedLanguage("");
     };
 
-    // Sorting logic
-    if (sortBy === "program") {
-        allPrograms.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)); // Ensure createdAt exists
-    } else if (sortBy === "month") {
-        allPrograms.sort((a, b) => new Date(b.startDate || 0) - new Date(a.startDate || 0)); // Ensure valid dates
-    } else if (sortBy === "language") {
-        const languageOrder = { "English": 1, "Telugu": 2 }; // Define fixed order
+    const toggleProgramDropdown = () => {
+        setShowProgramDropdown(!showProgramDropdown);
+        setSortBy("program");
+    };
 
-        allPrograms.sort((a, b) => {
-            const langA = languageOrder[a.language] || 3; // Default value for unknown languages
-            const langB = languageOrder[b.language] || 3;
-            return langA - langB || (a.language || "").localeCompare(b.language || ""); // Handle undefined values
-        });
-    }
+    const selectDropdownProgram = (programId) => {
+        setSelectedDropdownProgramId(programId);
+        setShowProgramDropdown(false); // Close dropdown after selection
+        setSortBy("program");
+    };
+
+    const toggleMonthDropdown = () => {
+        setShowMonthDropdown(!showMonthDropdown);
+        setSortBy("month");
+    };
+
+    const selectDropdownMonth = (month) => {
+        setSelectedMonth(month);
+        setShowMonthDropdown(false); // Close dropdown after selection
+        setSortBy("month");
+    };
+
+    const toggleLanguageDropdown = () => {
+        setShowLanguageDropdown(!showLanguageDropdown);
+        setSortBy("language");
+    };
+
+    const selectDropdownLanguage = (language) => {
+        setSelectedLanguage(language);
+        setShowLanguageDropdown(false); // Close dropdown after selection
+        setSortBy("language");
+    };
+
+    const displayedPrograms = filteredPrograms.slice(0, 4);
 
     return (
         <div id="Programs" className="px-6 py-10 bg-[#FFFBEF]">
@@ -200,27 +264,83 @@ const Programs = () => {
                     <span>For Our  Classes</span>
                 </h1>
             </div>
-            <div className="flex flex-col gap-2 mb-8 max-w-[68rem] mx-auto px-4">
-                <h1 className="text-[#361A06] font-david text-[20px] md:text-[24px]">Sort by:</h1>
+            <div className="flex flex-col gap-2 mb-8 max-w-[68rem] mx-auto px-4 relative">
+                <h1 className="text-[#361A06] font-david text-[20px] md:text-[24px]">Filter by:</h1>
 
                 <div className="flex flex-wrap gap-2">
-                    {["program", "month", "language"].map((type) => (
+                    <div className="relative">
                         <button
-                            key={type}
-                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === type ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "program" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
                                 }`}
-                            onClick={() => setSortBy(type)}
+                            onClick={toggleProgramDropdown}
                         >
-                            {type.charAt(0).toUpperCase() + type.slice(1)}
+                            Program
                             <img className="h-4 w-4 ml-2" src="/Vector.svg" alt="Arrow Icon" />
                         </button>
-                    ))}
+                        {showProgramDropdown && (
+                            <div className="absolute top-full left-0 bg-white shadow-md rounded-md z-10 w-48">
+                                {allPrograms.map(program => (
+                                    <button
+                                        key={program._id}
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                                        onClick={() => selectDropdownProgram(program._id)}
+                                    >
+                                        {program.selectProgram || program.title}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="relative">
+                        <button
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "month" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                                }`}
+                            onClick={toggleMonthDropdown}
+                        >
+                            Month
+                            <img className="h-4 w-4 ml-2" src="/Vector.svg" alt="Arrow Icon" />
+                        </button>
+                        {showMonthDropdown && (
+                            <div className="absolute top-full left-0 bg-white shadow-md rounded-md z-10 w-32">
+                                {availableMonths.map(month => (
+                                    <button
+                                        key={month}
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                                        onClick={() => selectDropdownMonth(month)}
+                                    >
+                                        {month}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="relative">
+                        <button
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "language" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                                }`}
+                            onClick={toggleLanguageDropdown}
+                        >
+                            Language
+                            <img className="h-4 w-4 ml-2" src="/Vector.svg" alt="Arrow Icon" />
+                        </button>
+                        {showLanguageDropdown && (
+                            <div className="absolute top-full left-0 bg-white shadow-md rounded-md z-10 w-32">
+                                {availableLanguages.map(language => (
+                                    <button
+                                        key={language}
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                                        onClick={() => selectDropdownLanguage(language)}
+                                    >
+                                        {language}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-
-
-
-
 
             {/* Loading State */}
             {isLoading && (
@@ -228,7 +348,6 @@ const Programs = () => {
                     <p className="text-gray-500">Loading programs...</p>
                 </div>
             )}
-
 
             {!isLoading && (
                 <>
@@ -242,10 +361,11 @@ const Programs = () => {
                             />
                         </div>
                         <div className="grid grid-cols-1 font-jakarta md:grid-cols-2 gap-14">
-                            {allPrograms.slice(0, visibleCount).map((program) => (
+                            {displayedPrograms.map((program) => (
                                 <div
                                     key={program._id}
-                                    className="relative w-full md:w-[500px] rounded-[20px] overflow-hidden shadow-[0px_12px_24px_0px_rgba(54,26,6,0.25)]"
+                                    className="relative w-full md:w-[500px] rounded-[20px] overflow-hidden shadow-[0px_12px_24px_0px_rgba(54,26,6,0.25)] cursor-pointer"
+                                    onClick={() => handleProgramClick(program)}
                                 >
                                     {/* Program Image */}
                                     <img
@@ -281,33 +401,24 @@ const Programs = () => {
                                             <h2 className="font-bold text-[24px] text-[#361A06] leading-tight">
                                                 {program.selectProgram || program.title}
                                             </h2>
-                                            <p className="text-[14px] font-semibold	line-clamp-3">
+                                            <p className="text-[14px] font-semibold line-clamp-3">
                                                 {program.Description || program.description}
                                             </p>
-
-                                            {/* Know More Button */}
                                         </div>
-                                        <button
-                                            className="bg-[#361A06] text-white py-2 px-4 rounded-full mt-2 flex items-center justify-center text-[14px] font-semibold gap-2"
-                                            onClick={() => handleKnowMoreClick(program, program.type === 'combo')}
-                                        >
+                                        <div className="bg-[#361A06] text-white py-2 px-4 rounded-full mt-2 flex items-center justify-center text-[14px] font-semibold gap-2">
                                             Know More
                                             <img src="/Vector.png" alt="Arrow Icon" className="w-4 h-4" />
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
-
                             ))}
                         </div>
                     </div>
 
-
-                    {/* Navigation Buttons */}
-                    {/* Load More / Load Less Button */}
-                    {allPrograms.length > 4 && (
+                    {filteredPrograms.length > 4 && (
                         <div className="flex justify-center mt-6">
-                            <button className="bg-[#FD8531] text-white py-2 px-6 rounded-md font-bold text-lg" onClick={() => setVisibleCount(visibleCount === 4 ? allPrograms.length : 4)}>
-                                {visibleCount === 4 ? "Load More" : "Load Less"}
+                            <button className="bg-[#FD8531] text-white py-2 px-6 rounded-md font-bold text-lg" onClick={() => { /* Implement load more logic if needed */ }}>
+                                Load More
                             </button>
                         </div>
                     )}
@@ -315,10 +426,10 @@ const Programs = () => {
             )}
 
             {/* Render appropriate popup */}
-            {selectedProgram && isCombo ? (
-                <Combopopup onClose={() => setSelectedProgram(null)} program={selectedProgram} />
-            ) : selectedProgram ? (
-                <PopupProgram onClose={() => setSelectedProgram(null)} program={selectedProgram} />
+            {selectedProgramDetails && isCombo ? (
+                <Combopopup onClose={() => setSelectedProgramDetails(null)} program={selectedProgramDetails} />
+            ) : selectedProgramDetails ? (
+                <PopupProgram onClose={() => setSelectedProgramDetails(null)} program={selectedProgramDetails} />
             ) : null}
         </div>
     );
