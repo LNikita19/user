@@ -97,7 +97,7 @@ const Navbar = () => {
                             block: "start",
                         });
                     }}
-                    className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
+                    className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] lg:mb-16 md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
                 >
                     SEE ALL COURSES
                 </button>
@@ -118,11 +118,11 @@ const Navbar = () => {
 
             </div>
 
-            <div className="lg:hidden block relative flex justify-center mt-6 md:mt-12 ">
+            <div className="lg:hidden block relative flex justify-center mt-6 md:mt-12 lg:mt-32 ">
                 <img
                     src="/person.webp"
                     alt="Person"
-                    className="w-[80%] md:w-[50%] max-w-[400px]"
+                    className="w-[80%] md:w-[50%] max-w-[400px] "
                 />
 
                 {/* Phone Icon */}
