@@ -145,10 +145,11 @@ const OnlineClass = () => {
                                 {classData.faq && Array.isArray(classData.faq) && classData.faq.map((faq, index) => (
                                     <div key={index} className="mb-2">
                                         <button
-                                            className="w-full text-left bg-white p-2 rounded-lg flex justify-between items-center text-[#361A06] border-2 border-[#a7938680]"
+                                            className="w-full text-left bg-white p-2 rounded-lg flex justify-between items-start text-[#361A06] border-2 border-[#a7938680]" // Changed items-center to items-start
                                             onClick={() => toggleFAQ(index)}
                                         >
-                                            <div className="flex flex-col w-full">
+                                            {/* Content wrapper - takes up available space */}
+                                            <div className="flex flex-col flex-grow"> {/* Added flex-grow */}
                                                 <span className="text-[#361A06B2]">{faq.question}</span>
                                                 {openFAQ === index && (
                                                     <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
@@ -158,7 +159,10 @@ const OnlineClass = () => {
                                                     </ul>
                                                 )}
                                             </div>
-                                            <span className="text-sm">{openFAQ === index ? "▲" : "▼"}</span>
+                                            {/* Icon wrapper - fixed width or positioned to prevent movement */}
+                                            <div className="ml-4 flex-shrink-0 w-6 text-center"> {/* Added ml-4, flex-shrink-0, w-6, text-center */}
+                                                <span className="text-sm">{openFAQ === index ? "▲" : "▼"}</span>
+                                            </div>
                                         </button>
                                     </div>
                                 ))}

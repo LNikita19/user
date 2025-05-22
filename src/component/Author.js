@@ -40,7 +40,7 @@ const Author = () => {
                         </h1>
                         <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] space-y-4 mt-4">
                             <p className="md:pb-6 pb-8">
-                                {description || "Lorem ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."}
+                                {description || "Lorem ipsum simply dummy text of the printing and typesetting industry.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Lorem Ipsum has been the industry's standard."}
                             </p>
 
                         </div>
@@ -51,7 +51,7 @@ const Author = () => {
                         <img
                             src={image || "/main.webp"}
                             alt="Round Background"
-                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-16 mt-8  mb-0 z-0 -opacity-10 "
+                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-20 mt-8  mb-0 z-0 -opacity-10 "
                         />
                         {/* <img
                         src="/Person.png"
