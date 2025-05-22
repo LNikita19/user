@@ -36,11 +36,11 @@ const Author = () => {
                     <div className="max-w-xl  ml-0 md:text-left  text-start font-david px-4">
                         <p className="text-[#FD8531] font-bold md:text-[24px] uppercase mt-4 text-[20px]">Instructor</p>
                         <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] leading-[1.1] ">
-                            {heading || "Meet Our Talented Instructor"}
+                            {heading || "Meet the Heart Behind Our Programs"}
                         </h1>
                         <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] space-y-4 mt-4">
                             <p className="md:pb-6 pb-8">
-                                {description || "Lorem ipsum simply dummy text of the printing and typesetting industry.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.We use Polo on a daily basis for several internal processes, and I cannot rave enough about them. Lorem Ipsum has been the industry's standard."}
+                                {description || "Sharmila Raghav is a dedicated Hatha Yoga teacher, certified through Sadhguru Gurukulam. With over a decade of experience, she has guided many on their path to health, balance, and inner peace. Her teaching supports physical, mental, and emotional transformation. For Sharmila, true fulfillment comes from seeing her students live with vitality, ease, and deeper self-awareness."}
                             </p>
 
                         </div>
