@@ -28,7 +28,7 @@ const Author = () => {
     };
 
     return (
-        <div className="lg:mt-[-9rem] mt-0">
+        <div className="lg:mt-[-4rem] mt-0">
             <div className="bg-[#FFF4C0] h-full pb-24 flex flex-col items-center py-10 px-5 rounded-lg">
 
                 <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14 items-center space-y-6 md:space-x-52 gap-20 ">
@@ -51,7 +51,7 @@ const Author = () => {
                         <img
                             src={image || "/main.webp"}
                             alt="Round Background"
-                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-20 mt-8  mb-0 z-0 -opacity-10 "
+                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-20  mt-8  mb-0 z-0 -opacity-10 "
                         />
                         {/* <img
                         src="/Person.png"

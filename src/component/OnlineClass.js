@@ -81,19 +81,21 @@ const OnlineClass = () => {
             {/* Popup Modal */}
             {showPopup && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 p-4">
-                    <div className="border-2 border-[#361A0680] lg:p-6 p-4 rounded-xl">
-                        <div className=" py-4 px-8 rounded-lg w-full max-w-xl max-h-[150vh] overflow-auto bg-white shadow-xl relative">
-                            {/* Close Button */}
-                            <button
-                                className="absolute top-0 -right-0 text-[#361A06] border-2 border-black px-2 py-1 rounded-full"
-                                onClick={() => setShowPopup(false)}
-                            >
-                                ✖
-                            </button>
+                    {/* Outer Container for the Popup with max-width and max-height */}
+                    <div className="relative border-2 border-[#361A0680] lg:p-6 p-4 rounded-xl bg-white shadow-xl w-full max-w-xl max-h-[90vh] flex flex-col">
+                        {/* Close Button - fixed relative to this outer container */}
+                        <button
+                            className="absolute top-2 right-2 text-[#361A06] border-2 border-black px-2 py-1 rounded-full z-10" // Adjusted position and added z-index
+                            onClick={() => setShowPopup(false)}
+                        >
+                            ✖
+                        </button>
 
+                        {/* Scrollable Content Area */}
+                        <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar "> {/* Added flex-grow, overflow-y-auto, pr-4, custom-scrollbar */}
                             {/* Image */}
                             <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
-                                <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto  object-cover" />
+                                <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto object-cover" />
                                 {/* Blur Gradient Overlay */}
                                 <div className="absolute -bottom-0 left-0 w-full h-1/2"
                                     style={{ background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)" }}>
@@ -120,36 +122,29 @@ const OnlineClass = () => {
                                         <span className="text-start font-bold text-[#361A06]">:</span>
                                         <span className="text-[#361A06] text-start ml-2">
                                             {item.label === "Program Fee" ? `${item.value} INR` : item.value}
-                                        </span>                                    </li>
+                                        </span>
+                                    </li>
                                 ))}
                             </ul>
                             <ul className="lg:hidden mt-2 space-y-1 text-[#361A06] font-jakarta text-[14px] list-disc pl-5">
-
                                 <li><b>Date:</b> {formatDate(classData.startDate)} - {formatDate(classData.endDate)}</li>
-
                                 <li><b>Session Timings:</b> {classData.programTiming}</li>
-
                                 <li><b>Language:</b> {classData.selectLanguage}</li>
-                                <li><b>Program Fee:</b>  {classData.programFees}INR</li>
-
-
-                                {/* <li><b>Program Fee:</b> {classData.programFees}</li> */}
-
+                                <li><b>Program Fee:</b> {classData.programFees}INR</li>
                             </ul>
+
                             {/* FAQ Section */}
                             <h3 className="mt-4 mb-4 text-lg font-david text-[20px] md:text-[24px] text-[#361A06] whitespace-nowrap font-bold">
                                 FAQs (Important Please Read)
                             </h3>
                             <div className="mt-2 text-[#361A06]">
-                                {/* Check if faqList exists and is an array */}
                                 {classData.faq && Array.isArray(classData.faq) && classData.faq.map((faq, index) => (
                                     <div key={index} className="mb-2">
                                         <button
-                                            className="w-full text-left bg-white p-2 rounded-lg flex justify-between items-start text-[#361A06] border-2 border-[#a7938680]" // Changed items-center to items-start
+                                            className="w-full text-left bg-white p-2 rounded-lg flex justify-between items-start text-[#361A06] border-2 border-[#a7938680]"
                                             onClick={() => toggleFAQ(index)}
                                         >
-                                            {/* Content wrapper - takes up available space */}
-                                            <div className="flex flex-col flex-grow"> {/* Added flex-grow */}
+                                            <div className="flex flex-col flex-grow">
                                                 <span className="text-[#361A06B2]">{faq.question}</span>
                                                 {openFAQ === index && (
                                                     <ul className="px-4 py-2 bg-white border-t list-disc ml-5 space-y-1">
@@ -159,42 +154,40 @@ const OnlineClass = () => {
                                                     </ul>
                                                 )}
                                             </div>
-                                            {/* Icon wrapper - fixed width or positioned to prevent movement */}
-                                            <div className="ml-4 flex-shrink-0 w-6 text-center"> {/* Added ml-4, flex-shrink-0, w-6, text-center */}
+                                            <div className="ml-4 flex-shrink-0 w-6 text-center">
                                                 <span className="text-sm">{openFAQ === index ? "▲" : "▼"}</span>
                                             </div>
                                         </button>
                                     </div>
                                 ))}
-
-                                {/* Handle the case where faqList is not available or not an array */}
-
                             </div>
-
-                            {/* Buttons */}
-                            <div className="flex flex-col-reverse md:flex-row justify-between md:space-x-4">
-                                <button
-                                    className="px-4 py-2 w-full md:w-1/2 border border-[#f8c6a2] text-[#FD8531] font-jakarta font-bold text-[16px] rounded-lg"
-                                    onClick={() => setShowContactPopup(true)} // Open ContactPopup
-                                >
-                                    Contact us
-                                </button>
-                                <button className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap">
-                                    Watch Demo on YouTube
-                                </button>
-                            </div>
-
-                            <button
-                                className="w-full bg-[#361A06] text-[#FFF9E1] py-2 rounded-lg text-[18px] font-bold mt-4"
-                                onClick={() => setShowContact1Popup(true)} // Open Contact1Popup
-                            >
-                                Book Now
-                            </button>
-
-                            {/* Render Popups Conditionally */}
-                            {showContactPopup && <ContactPopup1 onClose={() => setShowContactPopup(false)} />}
-                            {showContact1Popup && <ContactPopup onClose={() => setShowContact1Popup(false)} />}
+                            {/* Spacer to push content up if needed (optional) */}
+                            <div className="pb-4"></div> {/* Add some padding at the bottom of the scrollable area */}
                         </div>
+
+                        {/* Buttons (Fixed at the bottom of the popup) */}
+                        <div className="mt-4 flex flex-col md:flex-row justify-between md:space-x-4 bg-white pt-4 border-t-2 border-[#361A061A]"> {/* Added mt-4, bg-white, pt-4, border-t-2 */}
+                            <button
+                                className="px-4 py-2 w-full md:w-1/2 border border-[#f8c6a2] text-[#FD8531] font-jakarta font-bold text-[16px] rounded-lg mb-2 md:mb-0" // Added mb-2 md:mb-0 for spacing
+                                onClick={() => setShowContactPopup(true)}
+                            >
+                                Contact us
+                            </button>
+                            <button className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap">
+                                Watch Demo on YouTube
+                            </button>
+                        </div>
+
+                        <button
+                            className="w-full bg-[#361A06] text-[#FFF9E1] py-2 rounded-lg text-[18px] font-bold mt-4"
+                            onClick={() => setShowContact1Popup(true)}
+                        >
+                            Book Now
+                        </button>
+
+                        {/* Render Popups Conditionally */}
+                        {showContactPopup && <ContactPopup1 onClose={() => setShowContactPopup(false)} />}
+                        {showContact1Popup && <ContactPopup onClose={() => setShowContact1Popup(false)} />}
                     </div>
                 </div>
             )}
