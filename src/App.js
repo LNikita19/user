@@ -1,7 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import About from "./component/About";
 import Footer from "./component/Footer";
@@ -11,20 +9,31 @@ import OnlineClass from "./component/OnlineClass";
 import Testimonials from "./component/Testimonials";
 import ImageSlider from "./component/Images";
 import Author from "./component/Author";
+import Privacypolicy from "./component/Privacypolicy";
+
+function Home() {
+  return (
+    <>
+      <Navbar />
+      <About />
+      <Programs />
+      <OnlineClass />
+      <Author />
+      <Testimonials />
+      <ImageSlider />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
-  return (<div className="">
-    <Navbar />
-    {/* <PopupProgram /> */}
-    <About />
-    <Programs />
-    <OnlineClass />
-    <Author />
-    <Testimonials />
-    <ImageSlider />
-    <Footer />
-
-
-  </div>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<Privacypolicy />} />
+      </Routes>
+    </Router>
   );
 }
 

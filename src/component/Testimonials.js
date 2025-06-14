@@ -58,7 +58,7 @@ const Testimonials = () => {
         <section className="py-12 px-4">
             {/* Header */}
             <div className="text-center font-david">
-                <p className="text-[#FD8531] text-[20px] md:text-[24px] font-bold">TESTIMONIALS</p>
+                <p className="text-[#FD8531] text-[20px] md:text-[24px] font-bold">Voices of Transformation</p>
                 <h1 className="text-[#361A06] md:text-[64px] text-[32px] font-bold leading-[1.1]">
                     What Our Clients  <br />  Say About Us
                 </h1>

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from 'react-icons/fa6'; // For X (Twitter rebranded icon)
+
+import { Link } from 'react-router-dom';
 import { MdLocationOn, MdPhone } from "react-icons/md";
 import { API_BASE_URL } from "../config";
 import axios from "axios";
@@ -52,7 +55,7 @@ const Footer = () => {
     return (
         <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center"
             style={{ backgroundImage: `url(${'/Background.png'})` }}>
-            <div className="max-w-screen-lg mx-auto flex flex-col items-center md:flex-row md:items-center md:justify-between">
+            <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between">
                 {/* Left Side - Logo Section */}
                 <div className=" flex flex-col items-center mt-8 md:items-start">
                     <img
@@ -69,8 +72,8 @@ const Footer = () => {
 
                 {/* Right Side - Contact Info */}
                 <div className="text-center md:text-left mt-10 md:mt-0">
-                    <h3 className="md:text-[56px] text-[32px] font-bold font-david">Contact Us!</h3>
-                    <p className="text-[#FFF9E180] font-normal md:text-[20px]">Everyday 8:00 - 20:00</p>
+                    <h3 className="md:text-[56px] text-[32px] text-center font-bold font-david">Contact Us!</h3>
+                    {/* <p className="text-[#FFF9E180] font-normal md:text-[20px]">Everyday 8:00 - 20:00</p> */}
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
                         <span className="bg-orange-400 p-3 rounded-xl">
                             <MdLocationOn className="text-white text-xl" />
@@ -97,6 +100,22 @@ const Footer = () => {
                         <a href={footerData.instagramLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3  text-white rounded-full cursor-pointer">
                             <FaInstagram className="text-white text-xl" />
                         </a>
+                        <a
+                            href=''
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-orange-400 p-3 rounded-full cursor-pointer"
+                        >
+                            <FaXTwitter className="text-white text-xl" />
+                        </a>
+                        <a
+                            href=""
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-orange-400 p-3 rounded-full cursor-pointer"
+                        >
+                            <FaYoutube className="text-white text-xl" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -111,7 +130,9 @@ const Footer = () => {
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap">
                         Shyama Yoga Studio
                     </p>
-
+                    <Link to="/privacy-policy" className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap hover:underline">
+                        Privacy Policy
+                    </Link>
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap">
                         &copy;2025. All rights reserved.
                     </p>
