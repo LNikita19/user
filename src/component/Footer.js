@@ -53,13 +53,13 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center"
+        <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center lg:mt-16 mt-4"
             style={{ backgroundImage: `url(${'/Background.png'})` }}>
-            <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between">
+            <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
                 {/* Left Side - Logo Section */}
                 <div className=" flex flex-col items-center mt-8 md:items-start">
                     <img
-                        src={footerData.photo || "/Footerlogo.png"}
+                        src={footerData.photo || "/Logo 1.png"}
                         alt="Background"
                         className=" w-64 md:w-[28rem]"
                     />
@@ -123,7 +123,7 @@ const Footer = () => {
             {/* Footer Bottom Section */}
             <div className="mt-6 text-center">
                 {/* Horizontal line */}
-                <hr className="border-[#FFF9E1] w-full mx-auto mb-4" />
+                <hr className="border-[#FFF9E1] w-full mx-auto mb-4 md:mt-20 mt-6" />
 
                 {/* Text in a row */}
                 <div className="flex flex-col lg:flex-row justify-around items-center w-full px-4 md:space-x-0 space-x-4">

@@ -51,18 +51,18 @@ const OnlineClass = () => {
     return (
         <div className="bg-[#FFF4C0] h-full flex flex-col items-center py-10 px-5 rounded-lg">
             <p className='text-[#FD8531] font-bold md:text-[24px] text-[20px] font-david uppercase'>Online  Classes</p>
-            <h1 className='text-[#361A06] md:text-[64px] text-[32px] font-david font-bold text-center mb-6 leading-[1.1]'>
+            <h1 className='text-[#361A06] md:text-[64px] mt-2  md:mt-4 text-[32px] font-david font-bold text-center mb-6 leading-[0.9]'>
                 <span>Discover & Register</span><br />
                 <span>For Our Online Classes</span>
             </h1>
 
-            <div className="border-2 border-[#361A0680] p-6 rounded-xl">
+            <div className="border-2 border-[#361A0680] p-6 rounded-xl mt-4">
                 <div className="bg-white rounded-xl shadow-lg p-5 max-w-4xl w-full ">
                     <img src={classData.Photo} alt={classData.selectProgram} className="rounded-xl w-full" />
                     <div className="mt-4 space-y-2">
-                        <p className="text-[#FD8531] font-david md:text-[24px] text-[16px] font-bold uppercase text-sm">Training Online</p>
-                        <h2 className=" text-[#361A06] font-david md:text-[48px] text-[24px] font-bold">{classData.selectProgram}</h2>
-                        <p className="text-[#361A06] font-david mt-2 font-medium text-[16px] md:text-[20px]">{classData.Description}</p>
+                        <p className="text-[#FD8531] font-david md:text-[24px]  md:mt-6 mt-2 text-[16px] mb-[-1rem] font-bold uppercase text-sm">Training Online</p>
+                        <h2 className=" text-[#361A06] font-david md:text-[48px] text-[24px]  font-bold">{classData.selectProgram}</h2>
+                        <p className="text-[#361A06] font-david font-medium  text-[16px] md:text-[20px]">{classData.Description}</p>
                         <ul className="mt-3 font-jakarta space-y-1 font-bold md:text-[20px] text-[14px] text-[#361A06] text-sm">
                             <li><b>From: {formatDate(classData.startDate)} - {formatDate(classData.endDate)}</b></li>
                             <li><b>Duration: {calculateDuration(classData.startDate, classData.endDate)}</b> {/* Calculate duration if needed */}</li>
@@ -92,7 +92,7 @@ const OnlineClass = () => {
                         </button>
 
                         {/* Scrollable Content Area */}
-                        <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar "> {/* Added flex-grow, overflow-y-auto, pr-4, custom-scrollbar */}
+                        <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar leading-[1.0]"> {/* Added flex-grow, overflow-y-auto, pr-4, custom-scrollbar */}
                             {/* Image */}
                             <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
                                 <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto object-cover" />

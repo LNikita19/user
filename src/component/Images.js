@@ -70,7 +70,7 @@ const ImageSlider = () => {
                     style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.5) -6.27%, rgba(255, 255, 255, 0) 101.28%)' }}
                 />
                 {/* Image Container */}
-                <div className="flex overflow-hidden justify-start">
+                <div className="flex overflow-hidden justify-start mt-8 ">
                     <div
                         className="flex transition-transform duration-500 ease-in-out gap-4"
                         style={{ transform: `translateX(-${adjustedIndex * 50}%)` }}

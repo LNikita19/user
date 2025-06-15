@@ -28,17 +28,17 @@ const Author = () => {
     };
 
     return (
-        <div className="lg:mt-[-4rem] mt-0">
-            <div className="bg-[#FFF4C0] h-full pb-24 flex flex-col items-center py-10 px-5 rounded-lg">
+        <div className="lg:mt-[-9rem] mt-0">
+            <div className="bg-[#FFF4C0] h-full pb-36 flex flex-col items-center py-10 px-5 rounded-lg">
 
-                <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14 items-center space-y-6 md:space-x-52 gap-20 ">
+                <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 ">
                     {/* Left Section - Text */}
-                    <div className="max-w-xl  ml-0 md:text-left  text-start font-david px-4">
-                        <p className="text-[#FD8531] font-bold md:text-[24px] uppercase mt-4 text-[20px]">Hatha Yoga Teacher </p>
-                        <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] leading-[1.1] ">
+                    <div className="max-w-2xl  ml-0 md:text-left  text-start font-david px-4">
+                        <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Hatha Yoga Teacher </p>
+                        <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] mt-4  leading-[0.9] ">
                             {heading || "Meet the teacher who carries forward the grace of Yogic Lineage"}
                         </h1>
-                        <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] space-y-4 mt-4">
+                        <div className="text-[#361A06] font-medium	 mt-6 font-david md:text-[20px] text-[16px] space-y-4 mt-4">
                             <p className="md:pb-6 pb-8">
                                 {description || "Sharmila Raghav is a dedicated Hatha Yoga teacher, certified through Sadhguru Gurukulam. With over a decade of experience, she has guided many on their path to health, balance, and inner peace. Her teaching supports physical, mental, and emotional transformation. For Sharmila, true fulfillment comes from seeing her students live with vitality, ease, and deeper self-awareness."}
                             </p>
@@ -51,7 +51,7 @@ const Author = () => {
                         <img
                             src={image || "/main.webp"}
                             alt="Round Background"
-                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-[-2rem]  mt-8  mb-0 z-0 -opacity-10 "
+                            className="absolute w-full md:w-[400px] lg:w-[600px] md:mt-16  mt-8  mb-0 z-0 -opacity-10 "
                         />
                         {/* <img
                         src="/Person.png"

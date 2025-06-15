@@ -58,16 +58,16 @@ const Testimonials = () => {
         <section className="py-12 px-4">
             {/* Header */}
             <div className="text-center font-david">
-                <p className="text-[#FD8531] text-[20px] md:text-[24px] font-bold">Voices of Transformation</p>
-                <h1 className="text-[#361A06] md:text-[64px] text-[32px] font-bold leading-[1.1]">
+                <p className="text-[#FD8531] text-[20px] md:text-[24px] mt-2 md:mt-4 font-bold">Voices of Transformation</p>
+                <h1 className="text-[#361A06] md:text-[64px] text-[32px]  mt-2 md:mt-4 font-bold leading-[0.9]">
                     What Our Clients  <br />  Say About Us
                 </h1>
             </div>
 
             {/* Testimonials Grid */}
-            <div className="z-0 relative max-w-screen-lg mx-auto">
+            <div className="z-0 relative max-w-screen-lg mx-auto md:mt-8">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 mt-8 lg:mt-1 lg:grid-cols-3 font-jakarta gap-6 max-w-screen-lg mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 md:mt-16 lg:mt-1 lg:grid-cols-3 font-jakarta gap-6 max-w-screen-lg mx-auto ">
                     {/* {testimonials.map((testimonial, index) => (
                     <div
                         key={testimonial._id}
@@ -97,7 +97,7 @@ const Testimonials = () => {
                 ))} */}
 
                     {testimonials.map((testimonial) => (
-                        <div key={testimonial._id} className="relative p-6 rounded-xl bg-[#FDF7C4] shadow-md overflow-hidden">
+                        <div key={testimonial._id} className="relative p-6 rounded-xl bg-[#FDF7C4] shadow-md overflow-hidden mt-6">
 
                             <div className="relative z-10">
                                 <div className="flex items-center font-jakarta gap-4">

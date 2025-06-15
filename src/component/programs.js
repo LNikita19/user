@@ -258,8 +258,8 @@ const Programs = () => {
         <div id="Programs" className="px-6 py-10 bg-[#FFFBEF]">
             {/* Header Section */}
             <div className="text-center font-david">
-                <p className="text-[#FD8531] font-david md:text-[24px] text-[16px] font-bold uppercase">Our Classes</p>
-                <h1 className='text-[#361A06] md:text-[64px] text-[32px] font-david font-bold text-center mb-6 leading-[1.1]'>
+                <p className="text-[#FD8531] font-david md:text-[24px] mt-6 text-[16px] font-bold uppercase">Our Classes</p>
+                <h1 className='text-[#361A06] md:text-[64px] md:mt-4 mt-2 text-[32px] font-david font-bold text-center mb-6 leading-[0.9]'>
                     <span>Discover & Register</span><br />
                     <span>For Our  Classes</span>
                 </h1>
@@ -401,11 +401,11 @@ const Programs = () => {
                                             <h2 className="font-bold text-[24px] text-[#361A06] leading-tight">
                                                 {program.selectProgram || program.title}
                                             </h2>
-                                            <p className="text-[14px] font-semibold line-clamp-3">
+                                            <p className="text-[14px] leading-1 font-semibold line-clamp-3">
                                                 {program.Description || program.description}
                                             </p>
                                         </div>
-                                        <div className="bg-[#361A06] text-white py-2 px-4 rounded-full mt-2 flex items-center justify-center text-[14px] font-semibold gap-2">
+                                        <div className="bg-[#361A06] text-white py-2 px-4 rounded-full mt-4 flex items-center justify-center text-[14px] font-semibold gap-2">
                                             Know More
                                             <img src="/Vector.png" alt="Arrow Icon" className="w-4 h-4" />
                                         </div>

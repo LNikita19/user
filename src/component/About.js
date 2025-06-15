@@ -60,13 +60,13 @@ const About = () => {
                                 <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">
                                     SHYAMA YOGA STUDIO
                                 </h2>
-                                <h1 className="md:text-[52px] text-[32px] font-bold leading-[1.1]">
+                                <h1 className="md:text-[48px] mt-2 md:mt-4 text-[32px] font-bold leading-[1.0]">
                                     {aboutData.Heading}
                                 </h1>
-                                <div className="text-[#361A06] text-[16px] md:text-[20px] font-normal mt-2 space-y-4">
+                                <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] md:mt-6  space-y-4 leading-[1.2]">
                                     {aboutData.Description?.split(/\.\s+/).map((sentence, index, arr) => (
                                         sentence.trim() && (
-                                            <p key={index} className={index < arr.length - 1 ? "mb-4 last:mb-0" : ""}>
+                                            <p key={index} className={index < arr.length - 1 ? "mb-2 last:mb-0" : ""}>
                                                 {sentence.trim()}
                                                 {index < arr.length - 1 && "."}
                                             </p>
@@ -127,7 +127,8 @@ const About = () => {
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-xs  p-4 ">
                             <img src={item.icon} alt={item.title} className="w-[120px] h-[120px] mb-4" />
                             <h1 className="font-bold text-[24px] md:text-[44px] mb-2">{item.title}</h1>
-                            <p className="text-[16px] md:text-[24px] font-normal">{item.desc}</p>
+                            <p className="text-[14px] md:text-[20px] font-medium font-david leading-[1.2] tracking-wide">{item.desc}</p>
+
                         </div>
                     ))}
                 </div>
