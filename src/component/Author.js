@@ -32,7 +32,6 @@ const Author = () => {
             <div className="bg-[#FFF4C0] h-full pb-36 flex flex-col items-center py-10 px-5 rounded-lg">
 
                 <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 ">
-                    {/* Left Section - Text */}
                     <div className="max-w-2xl  ml-0 md:text-left  text-start font-david px-4">
                         <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Classical Hatha Yoga Teacher </p>
                         <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] mt-4  leading-[0.9] ">
@@ -46,8 +45,7 @@ const Author = () => {
                         </div>
                     </div>
 
-                    {/* Right Section - Image */}
-                    <div className=" flex justify-center items-center w-full md:w-auto">
+                    <div className=" flex justify-center items-center w-full">
                         <img
                             src={image || "/main.webp"}
                             alt="Round Background"
@@ -59,6 +57,7 @@ const Author = () => {
                         className="relative z-10 w-[150px] sm:w-[250px] md:w-[350px] lg:w-[450px] max-w-full"
                     /> */}
                     </div>
+
                 </div>
             </div>
         </div>
