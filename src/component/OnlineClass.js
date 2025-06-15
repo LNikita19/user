@@ -61,8 +61,13 @@ const OnlineClass = () => {
                     <img src={classData.Photo} alt={classData.selectProgram} className="rounded-xl w-full" />
                     <div className="mt-4 space-y-2">
                         <p className="text-[#FD8531] font-david md:text-[24px]  md:mt-6 mt-2 text-[16px] mb-[-1rem] font-bold uppercase text-sm">Training Online</p>
-                        <h2 className=" text-[#361A06] font-david md:text-[48px] text-[24px]  font-bold">{classData.selectProgram}</h2>
-                        <p className="text-[#361A06] font-david font-medium  text-[16px] md:text-[20px]">{classData.Description}</p>
+                        <h2 className="text-[#361A06] font-david md:text-[48px] text-[24px] font-bold mb-8">
+                            {classData.selectProgram}
+                        </h2>
+                        <p className="text-[#361A06] font-david font-medium text-[16px] md:text-[20px] -mt-4">
+                            {classData.Description}
+                        </p>
+
                         <ul className="mt-3 font-jakarta space-y-1 font-bold md:text-[20px] text-[14px] text-[#361A06] text-sm">
                             <li><b>From: {formatDate(classData.startDate)} - {formatDate(classData.endDate)}</b></li>
                             <li><b>Duration: {calculateDuration(classData.startDate, classData.endDate)}</b> {/* Calculate duration if needed */}</li>
@@ -73,7 +78,7 @@ const OnlineClass = () => {
                         className="w-full mt-4 bg-[#FD8531] text-[#FFF9E1] py-2 text-[16px] md:text-[24px] font-extrabold rounded-xl text-lg"
                         onClick={() => setShowPopup(true)}
                     >
-                        Enroll Now
+                        Book Now
                     </button>
                 </div>
             </div>
@@ -168,13 +173,13 @@ const OnlineClass = () => {
                         {/* Buttons (Fixed at the bottom of the popup) */}
                         <div className="mt-4 flex flex-col md:flex-row justify-between md:space-x-4 bg-white pt-4 border-t-2 border-[#361A061A]"> {/* Added mt-4, bg-white, pt-4, border-t-2 */}
                             <button
-                                className="px-4 py-2 w-full md:w-1/2 border border-[#f8c6a2] text-[#FD8531] font-jakarta font-bold text-[16px] rounded-lg mb-2 md:mb-0" // Added mb-2 md:mb-0 for spacing
+                                className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 bg-[#FFF9E1] rounded-xl" // Added mb-2 md:mb-0 for spacing
                                 onClick={() => setShowContactPopup(true)}
                             >
                                 Contact us
                             </button>
                             <button className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap">
-                                Watch Demo on YouTube
+                                Watch video on YouTube
                             </button>
                         </div>
 
@@ -184,6 +189,7 @@ const OnlineClass = () => {
                         >
                             Book Now
                         </button>
+
 
                         {/* Render Popups Conditionally */}
                         {showContactPopup && <ContactPopup1 onClose={() => setShowContactPopup(false)} />}

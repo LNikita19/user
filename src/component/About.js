@@ -113,21 +113,21 @@ const About = () => {
                 <div className="flex flex-col lg:flex-row justify-center items-stretch gap-10 font-david text-[#361A06] mt-10 md:mt-16 mb-10 px-4">
                     {[{
                         icon: "/Icon 1.png",
-                        title: "Healthy",
-                        desc: "Builds Strength and Alignment in the Body. Strengthens the spine, sinews, ligaments."
+                        title: "Builds Strength & Alignment",
+                        desc: "Strengthens the spine, sinews, ligaments, and the entire musculoskeletal system."
                     }, {
                         icon: "/Icon 2.png",
-                        title: "Flexibility",
-                        desc: "Revitalizes the System Rejuvenates vital organs and elevates overall vitality."
+                        title: "Revitalizes the System",
+                        desc: "Rejuvenates vital organs and elevates overall vitality harmonizes hormonal function and promotes natural weight balance."
                     }, {
                         icon: "/Icon 3.png",
-                        title: "Balance",
-                        desc: "Balances Hormones and Metabolism Harmonizes hormonal function & promotes natural weight balance."
+                        title: "Mental Clarity & Emotional Stability",
+                        desc: "Cultivates focus, dissolves anxiety and stress, and nurtures inner joy Awakens meditativeness, blissfulness, and a profound sense of wellbeing."
                     }].map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-xs  p-4 ">
                             <img src={item.icon} alt={item.title} className="w-[120px] h-[120px] mb-4" />
-                            <h1 className="font-bold text-[24px] md:text-[44px] mb-2">{item.title}</h1>
-                            <p className="text-[14px] md:text-[20px] font-medium font-david leading-[1.2] tracking-wide">{item.desc}</p>
+                            <h1 className="font-bold text-[24px] md:text-[32px] mt-4 leading-[1] mb-2">{item.title}</h1>
+                            <p className="text-[14px] md:text-[20px] font-medium font-david leading-[1.2] mt-2 tracking-wide text-center ">{item.desc}</p>
 
                         </div>
                     ))}

@@ -119,13 +119,13 @@ const Combopopup = ({ onClose, program }) => {
 
                     {/* Buttons */}
                     <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-4">
-                        {/* Contact Us Button */}
-                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
-                            Register Now
-                        </button>
                         <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 rounded-lg" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
+                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
+                            Register Now
+                        </button>
+
 
                         {/* Register Now Button (Opens Google Form) */}
 
