@@ -55,7 +55,7 @@ const Footer = () => {
     return (
         <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center lg:mt-16 mt-4"
             style={{ backgroundImage: `url(${'/Background.png'})` }}>
-            <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
+            <div className="max-w-screen-xl mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
                 {/* Left Side - Logo Section */}
                 <div className=" flex flex-col items-center mt-8 md:items-start">
                     <img

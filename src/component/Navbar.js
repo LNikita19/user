@@ -152,7 +152,7 @@ const Navbar = () => {
         //     )}
 
         // </div>
-        <div className="relative w-full min-h-screen overflow-hidden pb-[280px] md:pb-[280px] xl:pb-[350px]">
+        <div className="relative w-full lg:min-h-screen  h-[80vh] overflow-hidden pb-[200px] md:pb-[280px] xl:pb-[350px]">
             {/* Background Image */}
             <img
                 src="/Background.png"
@@ -173,11 +173,11 @@ const Navbar = () => {
             </div>
 
             {/* Main Text */}
-            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-4 px-5 pt-32 md:pt-40 lg:pt-48">
+            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-4 md:pt-40 lg:pt-42">
                 <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
                     {smallHeading}
                 </p>
-                <h1 className="font-bold text-[32px] font-david md:text-6xl leading-tight mt-2 max-w-2xl break-words">
+                <h1 className="font-bold text-[32px] font-david md:text-6xl lg:leading-tight leading-[0.9] mt-2 max-w-2xl break-words">
                     {mainHeading}
                 </h1>
                 <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4 break-words">

@@ -60,7 +60,7 @@ const About = () => {
                                 <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">
                                     SHYAMA YOGA STUDIO
                                 </h2>
-                                <h1 className="md:text-[48px] mt-2 md:mt-4 text-[32px] font-bold leading-[1.0]">
+                                <h1 className="md:text-[48px] mt-2 md:mt-4 text-[28px] font-bold leading-[1.0]">
                                     {aboutData.Heading}
                                 </h1>
                                 <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] md:mt-6  space-y-4 leading-[1.2]">
@@ -116,18 +116,18 @@ const About = () => {
                         title: "Builds Strength & Alignment",
                         desc: "Strengthens the spine, ligaments, & sinews, enhancing posture, flexibility, stability, & overall musculoskeletal integrity."
                     }, {
-                        icon: "/Icon 2.png",
+                        icon: "/Icon 3.png",
                         title: "Revitalizes the System",
                         desc: "Rejuvenates organs, balances hormones, boosts vitality, improves digestion, & supports healthy, sustainable natural weight management."
                     }, {
-                        icon: "/Icon 3.png",
+                        icon: "/Icon 2.png",
                         title: "Mental Clarity & Emotional Stability",
                         desc: " Sharpens focus, calms stress, nurtures joy, awakens meditativeness, & deepens inner bliss & emotional wellbeing."
                     }].map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-xs  p-4 ">
                             <img src={item.icon} alt={item.title} className="w-[120px] h-[120px] mb-4" />
                             <h1 className="font-bold text-[24px] md:text-[32px] mt-4 leading-[1] mb-2">{item.title}</h1>
-                            <p className="text-[14px] md:text-[20px] font-medium font-david leading-[1.2] mt-2 tracking-wide text-center ">{item.desc}</p>
+                            <p className="text-[18px] md:text-[20px] font-medium font-david leading-[1.2] mt-2 tracking-wide text-center ">{item.desc}</p>
 
                         </div>
                     ))}

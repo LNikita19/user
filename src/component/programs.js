@@ -258,8 +258,8 @@ const Programs = () => {
         <div id="Programs" className="px-6 py-10 bg-[#FFFBEF]">
             {/* Header Section */}
             <div className="text-center font-david">
-                <p className="text-[#FD8531] font-david md:text-[24px] mt-6 text-[16px] font-bold uppercase">In-Person Studio Programs</p>
-                <h1 className='text-[#361A06] md:text-[64px] md:mt-4 mt-2 text-[32px] font-david font-bold text-center mb-6 leading-[0.9]'>
+                <p className="text-[#FD8531] font-david md:text-[24px] mt-4 lg:mt-6 text-[16px] font-bold uppercase">In-Person Studio Programs</p>
+                <h1 className='text-[#361A06] md:text-[64px] md:mt-4 mt-2 text-[28px] font-david font-bold text-center mb-6 leading-[0.9]'>
                     <span>Explor & Register for Our</span><br />
                     <span>Upcoming Programs</span>
                 </h1>
