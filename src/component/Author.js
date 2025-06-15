@@ -34,7 +34,7 @@ const Author = () => {
                 <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 ">
                     {/* Left Section - Text */}
                     <div className="max-w-2xl  ml-0 md:text-left  text-start font-david px-4">
-                        <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Hatha Yoga Teacher </p>
+                        <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Classical Hatha Yoga Teacher </p>
                         <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] mt-4  leading-[0.9] ">
                             {heading || "Meet the teacher who carries forward the grace of Yogic Lineage"}
                         </h1>
