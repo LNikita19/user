@@ -4,7 +4,7 @@ import { API_BASE_URL } from "../config";
 
 const defaultData = {
     Heading: "Clear Mind & Refresh Your Body",
-    Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    Description: "Lorem Ipsum is simply dummy text of the printing & typesetting industry.",
     PhotoCarousel: ["/p1.png", "/Image3.png"], // Default images
     // Points: ["Neck Pain", "Peace", "Happiness"],
 };
@@ -114,15 +114,15 @@ const About = () => {
                     {[{
                         icon: "/Icon 1.png",
                         title: "Builds Strength & Alignment",
-                        desc: "Strengthens the spine, sinews, ligaments, and the entire musculoskeletal system."
+                        desc: "Strengthens the spine, ligaments, & sinews, enhancing posture, flexibility, stability, & overall musculoskeletal integrity."
                     }, {
                         icon: "/Icon 2.png",
                         title: "Revitalizes the System",
-                        desc: "Rejuvenates vital organs and elevates overall vitality harmonizes hormonal function and promotes natural weight balance."
+                        desc: "Rejuvenates organs, balances hormones, boosts vitality, improves digestion, & supports healthy, sustainable natural weight management."
                     }, {
                         icon: "/Icon 3.png",
                         title: "Mental Clarity & Emotional Stability",
-                        desc: "Cultivates focus, dissolves anxiety and stress, and nurtures inner joy Awakens meditativeness, blissfulness, and a profound sense of wellbeing."
+                        desc: " Sharpens focus, calms stress, nurtures joy, awakens meditativeness, & deepens inner bliss & emotional wellbeing."
                     }].map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-xs  p-4 ">
                             <img src={item.icon} alt={item.title} className="w-[120px] h-[120px] mb-4" />

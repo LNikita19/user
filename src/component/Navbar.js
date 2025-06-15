@@ -152,7 +152,7 @@ const Navbar = () => {
         //     )}
 
         // </div>
-        <div className="relative w-full min-h-screen overflow-hidden pb-[220px] md:pb-[250px] lg:pb-[280px]">
+        <div className="relative w-full min-h-screen overflow-hidden pb-[280px] md:pb-[280px] xl:pb-[350px]">
             {/* Background Image */}
             <img
                 src="/Background.png"
@@ -201,7 +201,7 @@ const Navbar = () => {
                 <img
                     src="/person.webp"
                     alt="Person"
-                    className="w-[60%] md:w-[45%] lg:w-[35%] max-w-[500px] object-contain"
+                    className="w-[65%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%] max-w-[600px]"
                 />
 
             </div>
