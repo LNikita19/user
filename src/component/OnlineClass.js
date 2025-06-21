@@ -61,12 +61,12 @@ const OnlineClass = () => {
             <div className="border-2 border-[#361A0680] p-6 rounded-xl mt-4">
                 <div className="bg-white rounded-xl shadow-lg p-5 max-w-4xl w-full ">
                     <img src={classData.Photo} alt={classData.selectProgram} className="rounded-xl w-full" />
-                    <div className="mt-4 space-y-2">
-                        <p className="text-[#FD8531] font-david md:text-[24px]  md:mt-6 mt-2 text-[16px] mb-[-1rem] font-bold uppercase text-sm">Training Online</p>
-                        <h2 className="text-[#361A06] font-david md:text-[48px] text-[24px] font-bold mb-8">
+                    <div className="">
+                        <p className="text-[#FD8531] font-david md:text-[24px]  md:mt-6 mt-2 text-[16px] -mb-2 font-bold uppercase text-sm">Training Online</p>
+                        <h2 className="text-[#361A06] font-david md:text-[48px] text-[24px] font-bold ">
                             {classData.selectProgram}
                         </h2>
-                        <p className="text-[#361A06] font-david font-medium text-[16px] md:text-[20px] -mt-4">
+                        <p className="text-[#361A06] font-david font-medium text-[16px] md:text-[20px] -mt-2 ">
                             {classData.Description}
                         </p>
 

@@ -56,27 +56,27 @@ const ContactPopup = ({ onClose }) => {
                     {/* Logo */}
                     <img src="/logo1.png" alt="Logo" className="w-32 mb-4" />
 
-                    <h2 className="text-[32px] text-[#361A06] leading-[1.1] font-extrabold">Got a question?</h2>
+                    <h2 className="text-[32px] text-[#361A06] leading-[0.6] font-extrabold">Got a question?</h2>
                     <p className="text-[32px] text-[#361A06] leading-[1.1] font-extrabold">Contact us...</p>
 
-                    <form onSubmit={handleSubmit} className="mt-4  space-y-4 font-david lg:space-y-8">
+                    <form onSubmit={handleSubmit} className="mt-4  space-y-4 font-david lg:space-y-10">
                         {/* Fields will stack on small screens and be side-by-side on md+ */}
                         <div className="flex flex-col md:flex-row md:space-x-6">
                             <input type="text" name="Name" placeholder="First name*" value={formData.Name} onChange={handleChange} required
-                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] bg-transparent outline-none placeholder-[#361A06]" />
+                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] font-medium bg-transparent outline-none placeholder-[#361A06] " />
                             <input type="text" name="LastName" placeholder="Last name*" value={formData.LastName} onChange={handleChange} required
-                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] bg-transparent outline-none placeholder-[#361A06]" />
+                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] font-medium bg-transparent outline-none placeholder-[#361A06]" />
                         </div>
                         <div className="flex flex-col md:flex-row md:space-x-6">
                             <input type="email" name="Email" placeholder="Email address*" value={formData.Email} onChange={handleChange} required
-                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] bg-transparent outline-none placeholder-[#361A06]" />
+                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] font-medium bg-transparent outline-none placeholder-[#361A06]" />
                             <input type="text" name="Phone" placeholder="Your number*" value={formData.Phone} onChange={handleChange} required
-                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] bg-transparent outline-none placeholder-[#361A06]" />
+                                className="w-full md:w-1/2 pb-2 border-b border-[#FD8531] text-[#361A06] font-medium bg-transparent outline-none placeholder-[#361A06]" />
                         </div>
                         <input type="text" name="Message" placeholder="Message*" value={formData.Message} onChange={handleChange} required
-                            className="w-full pb-2 border-b border-[#FD8531] text-[#361A06] bg-transparent outline-none placeholder-[#361A06]" />
+                            className="w-full pb-2 border-b border-[#FD8531] text-[#361A06] font-medium bg-transparent outline-none placeholder-[#361A06]" />
 
-                        <button className="w-full bg-[#361A06] text-[#FFF9E1] p-2 mt-8 rounded-lg">Submit</button>
+                        <button className="w-full bg-[#361A06] text-[#FFF9E1] p-2 mt-12 rounded-lg">Submit</button>
                     </form>
                 </div>
 

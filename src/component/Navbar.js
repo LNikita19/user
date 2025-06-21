@@ -164,7 +164,7 @@ const Navbar = () => {
             <div className="absolute w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
                 <img src="/Logo 1.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
                 <button
-                    className="font-PlusJakartaSans font-bold hidden lg:block bg-[#361A06] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
+                    className="font-PlusJakartaSans font-bold hidden lg:block bg-[#FD8531] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
                     onClick={() => setShowPopup(true)}
                     onMouseDown={(e) => e.preventDefault()}
                 >
@@ -173,7 +173,7 @@ const Navbar = () => {
             </div>
 
             {/* Main Text */}
-            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-4 md:pt-40 lg:pt-42">
+            <div className="relative flex flex-col items-center justify-center  text-center text-white space-y-3 px-5 pt-4 md:pt-40 lg:pt-42">
                 <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
                     {smallHeading}
                 </p>
