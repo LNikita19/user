@@ -173,7 +173,7 @@ const Navbar = () => {
             </div>
 
             {/* Main Text */}
-            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-0 md:pt-40 lg:pt-4">
+            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-4 md:pt-40 lg:pt-42">
                 <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
                     {smallHeading}
                 </p>

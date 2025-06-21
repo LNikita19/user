@@ -55,7 +55,7 @@ const Footer = () => {
     return (
         <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center lg:mt-16 mt-4"
             style={{ backgroundImage: `url(${'/Background.png'})` }}>
-            <div className="max-w-screen-xl mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
+            <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
                 {/* Left Side - Logo Section */}
                 <div className=" flex flex-col items-center mt-8 md:items-start">
                     <img
@@ -72,7 +72,7 @@ const Footer = () => {
 
                 {/* Right Side - Contact Info */}
                 <div className="text-start md:text-left mt-10 md:mt-0">
-                    <h3 className="md:text-[56px] text-[32px] text-center font-bold font-david">Contact Us!</h3>
+                    <h3 className="md:text-[56px] text-[32px] text-start font-bold font-david">Contact Us!</h3>
                     {/* <p className="text-[#FFF9E180] font-normal md:text-[20px]">Everyday 8:00 - 20:00</p> */}
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
                         <span className="bg-orange-400 p-3 rounded-xl">

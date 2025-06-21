@@ -261,8 +261,8 @@ const Programs = () => {
                 <p className="text-[#FD8531] font-david md:text-[24px] mt-4 lg:mt-6 text-[16px] font-bold uppercase">In-Person Studio Programs</p>
                 <h1 className='text-[#361A06] md:text-[64px] md:mt-4 mt-2 text-[28px] font-david font-bold text-center mb-6 leading-[1]'>
 
-                    <span>Step into our tranquil studio</span><br />
-                    <span>for immersive sessions.</span>
+                    <span>Step Into Our Tranquil Studio</span><br />
+                    <span>for Immersive Sessions.</span>
                 </h1>
             </div>
             <div className="flex flex-col gap-2 mb-8 max-w-[68rem] mx-auto px-4 relative">
