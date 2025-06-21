@@ -173,14 +173,14 @@ const Navbar = () => {
             </div>
 
             {/* Main Text */}
-            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-4 md:pt-40 lg:pt-42">
+            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-3 px-5 pt-0 md:pt-40 lg:pt-4">
                 <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
                     {smallHeading}
                 </p>
-                <h1 className="font-bold text-[32px] font-david md:text-6xl lg:leading-tight leading-[0.9] mt-2 max-w-2xl break-words">
+                <h1 className="font-bold text-[32px] font-david md:text-6xl  leading-[0.2] mt-2 max-w-2xl">
                     {mainHeading}
                 </h1>
-                <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4 break-words">
+                <p className="text-[#FFF9E1] font-medium font-david text-base md:text-[24px] pb-6 max-w-xl mt-4 break-words">
                     {description}
                 </p>
                 <button
@@ -190,7 +190,7 @@ const Navbar = () => {
                             block: "start",
                         });
                     }}
-                    className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
+                    className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] md:text-[20px] px-6 py-3 mt-4 rounded-md text-lg font-semibold"
                 >
                     SEE ALL COURSES
                 </button>

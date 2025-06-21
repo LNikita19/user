@@ -35,7 +35,7 @@ const Author = () => {
                     <div className="max-w-2xl  ml-0 md:text-left  text-start font-david px-4">
                         <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Classical Hatha Yoga Teacher </p>
                         <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] mt-4  leading-[0.9] ">
-                            {heading || "Meet the teacher who carries forward the grace of Yogic Lineage"}
+                            {heading || "Meet the Teacher Carrying the Grace of Yogic Lineage"}
                         </h1>
                         <div className="text-[#361A06] font-medium	 mt-6 font-david md:text-[20px] text-[16px] space-y-4 mt-4">
                             <p className="md:pb-6 pb-8">

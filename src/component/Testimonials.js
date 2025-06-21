@@ -60,7 +60,9 @@ const Testimonials = () => {
             <div className="text-center font-david">
                 <p className="text-[#FD8531] text-[20px] md:text-[24px] mt-2 md:mt-4 font-bold">Voices of Transformation</p>
                 <h1 className="text-[#361A06] md:text-[64px] text-[32px]  mt-2 md:mt-4 font-bold leading-[0.9]">
-                    What Our Clients  <br />  Say About Us
+                    Authentic Voices from  <br />  Our Programs
+
+
                 </h1>
             </div>
 

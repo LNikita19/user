@@ -71,14 +71,14 @@ const Footer = () => {
                 </div>
 
                 {/* Right Side - Contact Info */}
-                <div className="text-center md:text-left mt-10 md:mt-0">
+                <div className="text-start md:text-left mt-10 md:mt-0">
                     <h3 className="md:text-[56px] text-[32px] text-center font-bold font-david">Contact Us!</h3>
                     {/* <p className="text-[#FFF9E180] font-normal md:text-[20px]">Everyday 8:00 - 20:00</p> */}
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
                         <span className="bg-orange-400 p-3 rounded-xl">
                             <MdLocationOn className="text-white text-xl" />
                         </span>
-                        <p className="text-[#FFF9E1] font-normal font-jakarta text-[18px] md:text-[20px] break-words">
+                        <p className="text-[#FFF9E1] font-normal font-jakarta text-[16px] md:text-[20px] break-words">
                             {footerData.location}
                         </p>
                     </div>
@@ -86,7 +86,7 @@ const Footer = () => {
                         <span className="bg-orange-400 p-3 rounded-xl">
                             <MdPhone className="text-white text-xl" />
                         </span>
-                        <p className="text-[#FFF9E1] font-normal font-jakarta text-[20px]">{footerData.contactNumber}</p>
+                        <p className="text-[#FFF9E1] font-normal font-jakarta text-[16px] md:text-[20px]">{footerData.contactNumber}</p>
                     </div>
 
                     {/* Social Icons */}

@@ -63,7 +63,7 @@ const About = () => {
                                 <h1 className="md:text-[48px] mt-2 md:mt-4 text-[28px] font-bold leading-[1.0]">
                                     {aboutData.Heading}
                                 </h1>
-                                <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] md:mt-6  space-y-4 leading-[1.2]">
+                                <div className="text-[#361A06] font-medium	 font-david md:text-[20px] text-[16px] md:mt-6 mt-4  space-y-4 leading-[1.2]">
                                     {aboutData.Description?.split(/\.\s+/).map((sentence, index, arr) => (
                                         sentence.trim() && (
                                             <p key={index} className={index < arr.length - 1 ? "mb-2 last:mb-0" : ""}>
