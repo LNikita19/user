@@ -28,10 +28,11 @@ const Author = () => {
     };
 
     return (
-        <div className="lg:mt-[-9rem] mt-0">
+        <div className="lg:mt-[-5rem] mt-0">
             <div className="bg-[#FFF4C0] h-full pb-36 flex flex-col items-center py-10 px-5 rounded-lg">
+                {/* <div className="flex flex-col md:flex-row justify-start md:mt-40 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 "> */}
 
-                <div className="flex flex-col md:flex-row justify-start md:mt-44 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 ">
+                <div className="flex flex-col md:flex-row justify-start md:mt-10 -mt-4 md:-mb-24 mb-14  space-y-6 md:space-x-52 gap-20 ">
                     <div className="max-w-2xl  ml-0 md:text-left  text-start font-david px-4">
                         <p className="text-[#FD8531] font-bold md:text-[24px]  uppercase mt-4 text-[20px]">Classical Hatha Yoga Teacher </p>
                         <h1 className="text-[#361A06] font-bold md:text-[48px] text-[32px] mt-4  leading-[0.9] ">

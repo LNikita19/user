@@ -14,13 +14,13 @@ const PopupProgram = ({ onClose, program }) => {
         fee: "₹ 8500 INR",
     };
 
-    const displayData = program || defaultData;
+    // const displayData = program || defaultData;
     const [openFAQ, setOpenFAQ] = useState(null);
     const [showContact, setShowContact] = useState(false);
 
-    const toggleFAQ = (index) => {
-        setOpenFAQ(openFAQ === index ? null : index);
-    };
+    // const toggleFAQ = (index) => {
+    //     setOpenFAQ(openFAQ === index ? null : index);
+    // };
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { day: 'numeric', month: 'short', year: 'numeric' };

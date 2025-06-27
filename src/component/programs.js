@@ -346,7 +346,7 @@ const Programs = () => {
             {/* Loading State */}
             {isLoading && (
                 <div className="text-center py-10">
-                    <p className="text-gray-500">Loading programs...</p>
+                    {/* <p className="text-gray-500">Loading programs...</p> */}
                 </div>
             )}
 
