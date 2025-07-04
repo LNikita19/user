@@ -39,10 +39,16 @@ const OnlineClass = () => {
             console.error("Error fetching class data:", error);
         }
     };
+    useEffect(() => {
+        if (!showPopup && !showContactPopup && !showContact1Popup) {
+            setOpenFAQ(null);
+        }
+    }, [showPopup, showContactPopup, showContact1Popup]);
 
     const toggleFAQ = (index) => {
-        setOpenFAQ(openFAQ === index ? null : index);
+        setOpenFAQ(prevIndex => (prevIndex === index ? null : index));
     };
+
 
     if (!classData) {
         return <div className="text-center py-8"></div>;
@@ -54,7 +60,7 @@ const OnlineClass = () => {
             <h1 className='text-[#361A06] md:text-[64px] mt-2  md:mt-4 text-[32px] font-david font-bold text-center mb-6 leading-[0.9]'>
                 {/* <span>Discover & Register</span><br />
                 <span>For Our Online Classes</span> */}
-                <span>Explor & Register for Our</span><br />
+                <span>Explore & Register for Our</span><br />
                 <span>Upcoming Programs</span>
             </h1>
 
@@ -91,12 +97,15 @@ const OnlineClass = () => {
                     {/* Outer Container for the Popup with max-width and max-height */}
                     <div className="relative border-2 border-[#361A0680] lg:p-6 p-4 rounded-xl bg-white shadow-xl w-full max-w-xl max-h-[90vh] flex flex-col">
                         {/* Close Button - fixed relative to this outer container */}
-                        <button
-                            className="absolute top-2 right-2 text-[#361A06] border-2 border-black px-2 py-1 rounded-full z-10" // Adjusted position and added z-index
-                            onClick={() => setShowPopup(false)}
-                        >
-                            ✖
-                        </button>
+                        {!(showContactPopup || showContact1Popup) && (
+                            <button
+                                className="absolute top-2 right-2 text-[#361A06] border-2 border-black px-2 py-1 rounded-full z-10"
+                                onClick={() => setShowPopup(false)}
+                            >
+                                ✖
+                            </button>
+                        )}
+
 
                         {/* Scrollable Content Area */}
                         <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar leading-[1.0]"> {/* Added flex-grow, overflow-y-auto, pr-4, custom-scrollbar */}

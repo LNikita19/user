@@ -32,9 +32,17 @@ const PopupProgram = ({ onClose, program }) => {
 
                 <div className="py-4 px-6 lg:mt-2 mt-[2rem] rounded-lg w-full sm:max-w-lg md:max-w-xl max-h-screen overflow-y-auto bg-white shadow-xl relative">
                     {/* Close Button */}
-                    <button className="absolute top-4 z-50 right-1 text-[#361A06] bg-white/100 rounded-full w-8 h-8 flex items-center justify-center " onClick={onClose}>
-                        ✖
-                    </button>
+                    {!showContact && (
+                        <button
+                            className="absolute top-4 z-50 right-1 text-[#361A06] bg-white/100 rounded-full w-8 h-8 flex items-center justify-center"
+                            onClick={onClose}
+                        >
+                            ✖
+                        </button>
+                    )}
+
+
+
 
                     {/* Program Details */}
                     <div className="relative w-full max-h-60 overflow-hidden rounded-lg">

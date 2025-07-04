@@ -35,9 +35,14 @@ const Combopopup = ({ onClose, program }) => {
                 <div className="border-2 border-[#ecd8ca80] p-6 mt-4 lg:mt-0 rounded-xl bg-white shadow-xl w-full sm:max-w-lg md:max-w-xl max-h-screen overflow-y-auto relative">
 
                     {/* Close Button */}
-                    <button className="absolute z-50 top-4 right-4 text-[#361A06] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md" onClick={onClose}>
-                        ✖
-                    </button>
+                    {!showContact && (
+                        <button
+                            className="absolute top-4 z-50 right-1 text-[#361A06] bg-white/100 rounded-full w-8 h-8 flex items-center justify-center"
+                            onClick={onClose}
+                        >
+                            ✖
+                        </button>
+                    )}
                     {/* <img src={program.Photo} alt="Program" className="w-full max-h-60 object-contain rounded-xl" /> */}
 
                     {/* Program Image */}

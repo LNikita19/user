@@ -152,58 +152,49 @@ const Navbar = () => {
         //     )}
 
         // </div>
-        <div className="relative w-full md:min-h-screen xl:min-h-screen lg:min-h-screen 2xl:min-h-screen 3xl:min-h-screen sm:min-h-[80vh] overflow-hidden pb-[280px] md:pb-[280px] xl:pb-[350px]">
+        <div className="relative w-full min-h-screen bg-black text-white">
             {/* Background Image */}
             <img
                 src="/Background.png"
                 alt="Background"
-                className="absolute w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover z-0"
             />
 
-            {/* Navbar */}
-            <div className="absolute w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
-                <img src="/Logo 1.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
-                <button
-                    className="font-PlusJakartaSans font-bold hidden lg:block bg-[#FD8531] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
-                    onClick={() => setShowPopup(true)}
-                    onMouseDown={(e) => e.preventDefault()}
-                >
-                    CONTACT<span className="ml-2">US</span>
-                </button>
-            </div>
+            {/* Layout Wrapper */}
+            <div className="relative z-10 flex flex-col justify-between items-center text-center min-h-screen px-6 py-10">
 
-            {/* Main Text */}
-            <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-4 px-5 pt-32 md:pt-40 lg:pt-48">
-                <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
-                    {smallHeading}
-                </p>
-                <h1 className="font-bold text-[32px] font-david md:text-6xl leading-tight mt-2 max-w-2xl break-words">
-                    {mainHeading}
-                </h1>
-                <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4 break-words">
-                    {description}
-                </p>
-                <button
-                    onClick={() => {
-                        document.getElementById("Programs")?.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                        });
-                    }}
-                    className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
-                >
-                    SEE ALL COURSES
-                </button>
-            </div>
+                {/* Header and Button Content */}
+                <div className="flex flex-col items-center justify-center flex-grow">
+                    <p className="text-[#FD8531] font-bold font-david uppercase text-[20px] md:text-3xl">
+                        {smallHeading}
+                    </p>
+                    <h1 className="font-bold text-[32px] md:text-6xl font-david leading-tight mt-2 max-w-2xl">
+                        {mainHeading}
+                    </h1>
+                    <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4">
+                        {description}
+                    </p>
+                    <button
+                        onClick={() => {
+                            document.getElementById("Programs")?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                        }}
+                        className="text-[#361A06] font-jakarta bg-[#FD8531] text-[14px] md:text-[20px] px-6 py-3 mt-6 rounded-md font-semibold"
+                    >
+                        SEE ALL COURSES
+                    </button>
+                </div>
 
-            {/* Centered Person Image */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-full flex justify-center">
-                <img
-                    src="/person.webp"
-                    alt="Person"
-                    className="w-[65%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%] max-w-[600px]"
-                />
-
+                {/* Bottom Person Image */}
+                <div className="w-full flex justify-center mt-10">
+                    <img
+                        src="/person.webp"
+                        alt="Person"
+                        className="w-[65%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%] max-w-[600px] object-contain"
+                    />
+                </div>
             </div>
 
             {/* Mobile Contact Button */}

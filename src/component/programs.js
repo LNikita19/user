@@ -259,10 +259,10 @@ const Programs = () => {
             {/* Header Section */}
             <div className="text-center font-david">
                 <p className="text-[#FD8531] font-david md:text-[24px] mt-4 lg:mt-6 text-[16px] font-bold uppercase">In-Person Studio Programs</p>
-                <h1 className='text-[#361A06] md:text-[64px] md:mt-4 mt-2 text-[28px] font-david font-bold text-center mb-6 leading-[1]'>
+                <h1 className='text-[#361A06] md:text-[64px] mt-2  md:mt-4 text-[32px] font-david font-bold text-center mb-6 leading-[0.9]'>
 
-                    <span>Step Into Our Tranquil Studio</span><br />
-                    <span>for Immersive Sessions.</span>
+                    <span>Find Stillness through</span><br />
+                    <span >Immersive Studio Programs</span>
                 </h1>
             </div>
             <div className="flex flex-col gap-2 mb-8 max-w-[68rem] mx-auto px-4 relative">
