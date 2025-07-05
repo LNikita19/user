@@ -189,9 +189,15 @@ const OnlineClass = () => {
                             >
                                 Contact us
                             </button>
-                            <button className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap">
+                            <a
+                                href="https://www.youtube.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap inline-block text-center"
+                            >
                                 Watch video on YouTube
-                            </button>
+                            </a>
+
                         </div>
 
                         <button

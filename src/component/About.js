@@ -4,38 +4,32 @@ import { API_BASE_URL } from "../config";
 
 const defaultData = {
     Heading: "Clear Mind & Refresh Your Body",
-    Description: "Lorem Ipsum is simply dummy text of the printing & type setting industry.",
-    PhotoCarousel: ["/image1.png", "/Image2.png"], // Default images
-    // Points: ["Neck Pain", "Peace", "Happiness"],
+    Description: "Lorem Ipsum is simply dummy text of the printing & typesetting industry.",
+    PhotoCarousel: ["/image1.png", "/Image3.png"], // ✅ Corrected array
 };
 
 const About = () => {
     const [aboutData, setAboutData] = useState(defaultData);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${API_BASE_URL}/getaboutData`);
-                if (response.data.status && response.data.data) {
-                    const fetchedData = response.data.data;
-                    setAboutData({
-                        Heading: fetchedData.Heading || defaultData.Heading,
-                        Description: fetchedData.Description || defaultData.Description,
-                        PhotoCarousel: fetchedData.Photos?.length > 0
-                            ? fetchedData.Photos
-                            : defaultData.PhotoCarousel,
-                    });
-                } else {
-                    console.warn("No about data found, using defaults.");
-                    setAboutData(defaultData);
-                }
+                const fetchedData = response.data?.data;
+
+                const isValidArray = Array.isArray(fetchedData?.Photos) && fetchedData.Photos.length > 0;
+
+                setAboutData({
+                    Heading: fetchedData?.Heading || defaultData.Heading,
+                    Description: fetchedData?.Description || defaultData.Description,
+                    PhotoCarousel: isValidArray ? fetchedData.Photos : defaultData.PhotoCarousel,
+                });
             } catch (error) {
                 console.error("Error fetching about data:", error);
-                setAboutData(defaultData);
             } finally {
-                setLoading(false);
+                setIsLoading(false);
             }
         };
 
@@ -48,33 +42,21 @@ const About = () => {
         }, 3000);
         return () => clearInterval(interval);
     }, [aboutData]);
-
-    const getImageSrc = (img) => {
-        return img.includes("/") || img.startsWith("http")
-            ? img
-            : `data:image/jpeg;base64,${img}`;
-    };
-
-
     return (
         <>
             <div className="bg-[#FFF4C0] font-david flex flex-col min-h-screen p-6">
                 <div className="flex justify-center mt-8 px-4">
                     <div className="border border-[#361A0640] rounded-xl p-6 shadow-lg bg-white w-full max-w-[1200px] flex flex-col md:flex-row items-stretch gap-6">
 
-                        {/* LEFT */}
-                        <div className="md:w-1/2 w-full lg:px-6 p-0 flex flex-col justify-between">
+                        {/* LEFT: Text Section */}
+                        <div className="md:w-1/2 w-full lg:px-6 flex flex-col justify-between">
                             <div>
-                                <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">
-                                    SHYAMA YOGA STUDIO
-                                </h2>
-                                <h1 className="md:text-[48px] mt-2 md:mt-4 text-[28px] font-bold leading-[1.0]">
-                                    {aboutData.Heading}
-                                </h1>
-                                <div className="text-[#361A06] font-medium font-david md:text-[20px] text-[16px] md:mt-6 mt-4 space-y-4 leading-[1.2]">
+                                <h2 className="text-[#D17A0E] uppercase md:text-[24px] text-[16px] font-bold">SHYAMA YOGA STUDIO</h2>
+                                <h1 className="md:text-[48px] mt-2 md:mt-4 text-[28px] font-bold leading-[1.0]">{aboutData.Heading}</h1>
+                                <div className="text-[#361A06] font-medium md:text-[20px] text-[16px] mt-4 space-y-4 leading-[1.2]">
                                     {aboutData.Description?.split(/\.\s+/).map((sentence, index, arr) => (
                                         sentence.trim() && (
-                                            <p key={index} className={index < arr.length - 1 ? "mb-2 last:mb-0" : ""}>
+                                            <p key={index}>
                                                 {sentence.trim()}
                                                 {index < arr.length - 1 && "."}
                                             </p>
@@ -84,34 +66,41 @@ const About = () => {
                             </div>
                         </div>
 
-                        {/* RIGHT: Carousel */}
+                        {/* RIGHT: Image Carousel */}
                         <div className="md:w-1/2 w-full flex flex-col justify-between items-center relative">
-                            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg mt-4 md:mt-0 bg-gray-100 flex items-center justify-center">
-                                {loading ? (
-                                    <div className="w-10 h-10 border-4 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
+                            {/* Spinner or Image */}
+                            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg mt-4 md:mt-0 flex items-center justify-center">
+                                {isLoading ? (
+                                    <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-[#D17A0E] border-solid" />
                                 ) : (
-                                    aboutData.PhotoCarousel?.map((img, index) => (
-                                        <img
-                                            key={index}
-                                            src={getImageSrc(img)}
-                                            alt="Yoga"
-                                            className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'
-                                                }`}
-                                        />
-                                    ))
+                                    aboutData.PhotoCarousel?.map((img, index) => {
+                                        const isBase64 = img.startsWith("data:image") || img.length > 100; // crude base64 check
+                                        const imgSrc = isBase64 ? img : img.startsWith("/") ? img : `/images/${img}`; // adjust if your public path is different
+
+                                        return (
+                                            <img
+                                                key={index}
+                                                src={imgSrc}
+                                                alt="Yoga"
+                                                className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+                                                onError={(e) => {
+                                                    e.target.onerror = null;
+                                                    // e.target.src = "/default-placeholder.png";
+                                                }}
+                                            />
+                                        );
+                                    })
                                 )}
                             </div>
 
-                            {/* Dots Indicator */}
-                            {!loading && (
+                            {/* Dot Indicators */}
+                            {!isLoading && aboutData.PhotoCarousel.length > 1 && (
                                 <div className="flex justify-center space-x-2 mt-4">
-                                    {aboutData.PhotoCarousel?.map((_, index) => (
+                                    {aboutData.PhotoCarousel.map((_, index) => (
                                         <button
                                             key={index}
                                             onClick={() => setCurrentImageIndex(index)}
-                                            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentImageIndex === index ? "bg-[#D17A0E]" : "bg-gray-300"
-                                                }`}
-                                            aria-label={`Go to slide ${index + 1}`}
+                                            className={`w-3 h-3 rounded-full ${currentImageIndex === index ? "bg-[#D17A0E]" : "bg-gray-300"}`}
                                         />
                                     ))}
                                 </div>

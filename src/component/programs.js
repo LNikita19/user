@@ -271,7 +271,11 @@ const Programs = () => {
                 <div className="flex flex-wrap gap-2">
                     <div className="relative">
                         <button
-                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "program" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 font-bold ${sortBy === "month"
+                                    ? "bg-[#FD8531] text-[#361A06]"
+                                    : "bg-[#FDF7C4] text-[#361A06]"
+                                }
+"
                                 }`}
                             onClick={toggleProgramDropdown}
                         >
@@ -295,7 +299,11 @@ const Programs = () => {
 
                     <div className="relative">
                         <button
-                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "month" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 font-bold ${sortBy === "month"
+                                ? "bg-[#FD8531] text-[#361A06]"
+                                : "bg-[#FDF7C4] text-[#361A06]"
+                                }
+"
                                 }`}
                             onClick={toggleMonthDropdown}
                         >
@@ -319,7 +327,11 @@ const Programs = () => {
 
                     <div className="relative">
                         <button
-                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 ${sortBy === "language" ? "bg-[#FD8531] text-[#361A06]" : "text-[#361A06] font-bold"
+                            className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 font-bold ${sortBy === "month"
+                                ? "bg-[#FD8531] text-[#361A06]"
+                                : "bg-[#FDF7C4] text-[#361A06]"
+                                }
+"
                                 }`}
                             onClick={toggleLanguageDropdown}
                         >

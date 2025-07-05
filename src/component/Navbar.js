@@ -38,140 +38,36 @@ const Navbar = () => {
     };
 
     return (
-        // <div className="relative w-full md:min-h-screen min-h-screen overflow-hidden">
-        //     {/* Background Image */}
-        //     <img
-        //         src="/Background.png"
-        //         alt="Background"
-        //         className="absolute w-full h-full object-cover"
-        //     />
+        <>
+            <div className="lg:hidden relative w-full md:min-h-screen xl:min-h-screen lg:min-h-screen 2xl:min-h-screen 3xl:min-h-screen sm:min-h-[80vh] overflow-hidden pb-[280px] md:pb-[280px] xl:pb-[350px]">
+                {/* Background Image */}
+                <img
+                    src="/Background.png"
+                    alt="Background"
+                    className="absolute w-full h-full object-cover"
+                />
 
+                {/* Navbar */}
+                <div className="absolute w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
+                    <img src="/Logo 1.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
+                    <button
+                        className="font-PlusJakartaSans font-bold hidden lg:block bg-[#FD8531] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
+                        onClick={() => setShowPopup(true)}
+                        onMouseDown={(e) => e.preventDefault()}
+                    >
+                        CONTACT<span className="ml-2">US</span>
+                    </button>
+                </div>
 
-        //     {/* Navbar */}
-        //     <div className="absolute  w-full flex flex-col items-center lg:flex-row lg:justify-around lg:items-center px-10 py-5 border-b border-white/20 z-40">
-        //         <img src="/Logo 1.png" alt="Logo" className="w-40 mx-auto lg:mx-0 select-none" />
-        //         <button
-        //             className="font-PlusJakartaSans font-bold hidden lg:block bg-[#361A06] text-white border border-[#FFF9E180] px-6 py-2 rounded-md select-none cursor-pointer relative z-10"
-        //             onClick={() => {
-        //                 console.log("Contact button clicked");
-        //                 setShowPopup(true);
-        //             }}
-        //             onMouseDown={(e) => e.preventDefault()}
-        //         >
-        //             CONTACT<span className="ml-2">US</span>
-        //         </button>
-
-        //         {showPopup && (
-        //             <>
-        //                 {/* Blurred Backdrop */}
-        //                 <div
-        //                     className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
-        //                     onClick={() => setShowPopup(false)}
-        //                 />
-
-        //                 {/* Popup Container */}
-        //                 <div className="fixed inset-0 flex items-center justify-center z-50">
-        //                     <ContactPopup onClose={() => setShowPopup(false)} />
-        //                 </div>
-        //             </>
-        //         )}
-        //     </div>
-
-
-
-        //     <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-4 px-5 pt-32 select-none">
-        //         <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words whitespace-normal text-center">
-        //             {smallHeading}
-        //         </p>
-        //         <h1 className="font-bold text-[32px] font-david md:text-6xl leading-tight mt-2 max-w-2xl break-words text-center select-none">
-        //             {mainHeading}
-        //         </h1>
-
-        //         <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4 break-words text-center">
-        //             {description}
-        //         </p>
-        //         <button
-        //             onClick={() => {
-        //                 document.getElementById("Programs")?.scrollIntoView({
-        //                     behavior: "smooth",
-        //                     block: "start",
-        //                 });
-        //             }}
-        //             className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] lg:mb-16 md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
-        //         >
-        //             SEE ALL COURSES
-        //         </button>
-
-        //     </div>
-        //     {/* Person & Round Background */}
-        //     <div className="hidden lg:block absolute  bottom-0 left-1/2 lg:transform -translate-x-1/2 flex flex-col items-center">
-        //         {/* <img
-        //             src="/rounds.png"
-        //             alt="Round Background"
-        //             className="absolute w-[250px] sm:w-[350px] md:w-[500px] lg:w-[600px] -bottom-5"
-        //         /> */}
-        //         <img
-        //             src="/person.webp"
-        //             alt="Person"
-        //             className="relative z-10  w-full md:w-[500px] lg:w-[600px]"
-        //         />
-
-        //     </div>
-
-        //     <div className="lg:hidden block relative flex justify-center mt-6 md:mt-12 lg:mt-32 ">
-        //         <img
-        //             src="/person.webp"
-        //             alt="Person"
-        //             className="w-[80%] md:w-[50%] max-w-[400px] "
-        //         />
-
-        //         {/* Phone Icon */}
-        //         <button
-        //             onClick={() => setShowContact(true)}
-        //             className="lg:hidden block md:right-12 md:bottom-10 bg-brown-700 p-3 rounded-full fixed right-0 bottom-24 lg:bottom-32 hover:scale-105 z-50"
-        //         >
-        //             <img src="/Phone.png" alt="Call" className="w-12 h-12" />
-        //         </button>
-        //     </div>
-
-
-        //     {/* Contact Popup */}
-        //     {showContact && (
-        //         <>
-        //             {/* Blurred Backdrop */}
-        //             <div
-        //                 className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
-        //                 onClick={() => setShowContact(false)}
-        //             />
-
-        //             {/* Popup Container */}
-        //             <div className="fixed inset-0 flex items-center justify-center z-50">
-        //                 <ContactPopup onClose={() => setShowContact(false)} />
-        //             </div>
-        //         </>
-        //     )}
-
-        // </div>
-        <div className="relative w-full min-h-screen bg-black text-white">
-            {/* Background Image */}
-            <img
-                src="/Background.png"
-                alt="Background"
-                className="absolute inset-0 w-full h-full object-cover z-0"
-            />
-
-            {/* Layout Wrapper */}
-            <div className="relative z-10 flex flex-col justify-between items-center text-center min-h-screen px-6 py-10">
-
-                {/* Header and Button Content */}
-                <div className="flex flex-col items-center justify-center flex-grow">
-                    <p className="text-[#FD8531] font-bold font-david uppercase text-[20px] md:text-3xl">
+                {/* Main Text */}
+                <div className="relative flex flex-col items-center justify-center h-full text-center text-white space-y-4 px-5 pt-32 md:pt-40 lg:pt-48">
+                    <p className="text-[#FD8531] font-bold font-david uppercase font-plusjakarta text-[20px] md:text-3xl break-words">
                         {smallHeading}
                     </p>
-                    <h1 className="font-bold text-[32px] md:text-6xl font-david leading-tight mt-2 max-w-2xl">
+                    <h1 className="font-bold text-[32px] font-david md:text-6xl leading-tight mt-2 max-w-2xl break-words">
                         {mainHeading}
                     </h1>
-                    <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4">
+                    <p className="text-[#FFF9E1] font-medium font-david text-base md:text-lg max-w-xl mt-4 break-words">
                         {description}
                     </p>
                     <button
@@ -181,58 +77,146 @@ const Navbar = () => {
                                 block: "start",
                             });
                         }}
-                        className="text-[#361A06] font-jakarta bg-[#FD8531] text-[14px] md:text-[20px] px-6 py-3 mt-6 rounded-md font-semibold"
+                        className="text-[#361A06] font-jakarta bg-[#FD8531] text-[12px] md:text-[20px] px-6 py-3 mt-6 rounded-md text-lg font-semibold"
                     >
                         SEE ALL COURSES
                     </button>
                 </div>
 
-                {/* Bottom Person Image */}
-                <div className="w-full flex justify-center mt-10">
+                {/* Centered Person Image */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-full flex justify-center">
                     <img
                         src="/person.webp"
                         alt="Person"
-                        className="w-[65%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%] max-w-[600px] object-contain"
+                        className="w-[65%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%] max-w-[600px]"
                     />
+
                 </div>
+
+                {/* Mobile Contact Button */}
+                <button
+                    onClick={() => setShowContact(true)}
+                    className="lg:hidden block bg-brown-700 p-3 rounded-full fixed right-4 bottom-24 hover:scale-105 z-50"
+                >
+                    <img src="/Phone.png" alt="Call" className="w-12 h-12" />
+                </button>
+
+                {/* Contact Popups */}
+                {showPopup && (
+                    <>
+                        <div
+                            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
+                            onClick={() => setShowPopup(false)}
+                        />
+                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <ContactPopup onClose={() => setShowPopup(false)} />
+                        </div>
+                    </>
+                )}
+
+                {showContact && (
+                    <>
+                        <div
+                            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
+                            onClick={() => setShowContact(false)}
+                        />
+                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <ContactPopup onClose={() => setShowContact(false)} />
+                        </div>
+                    </>
+                )}
+            </div>
+            <div className="hidden lg:block relative w-full min-h-screen overflow-hidden bg-black text-white">
+                {/* Background Image */}
+                <img
+                    src="/Background.png"
+                    alt="Background"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+
+                {/* Main Container */}
+                <div className="relative z-10 flex flex-col justify-between min-h-screen px-4 pt-8">
+
+                    {/* ✅ Centered Navbar */}
+                    <div className="w-full flex justify-center px-4 py-4 border-b border-white/20">
+                        <div className="flex items-center justify-between w-full max-w-6xl px-4">
+                            <img src="/Logo 1.png" alt="Logo" className="w-40 select-none" />
+                            <button
+                                className="hidden lg:block bg-[#FD8531] text-white font-bold px-6 py-2 rounded-md"
+                                onClick={() => setShowPopup(true)}
+                            >
+                                CONTACT <span className="ml-1">US</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Main Text + Button */}
+                    <div className="flex flex-col items-center justify-center text-center flex-grow space-y-4 mt-4">
+                        <p className="text-[#FD8531] font-david uppercase text-xl md:text-3xl break-words">
+                            {smallHeading}
+                        </p>
+                        <h1 className="text-3xl md:text-6xl font-david font-bold max-w-2xl break-words leading-tight">
+                            {mainHeading}
+                        </h1>
+                        <p className="text-[#FFF9E1] font-david text-base md:text-lg max-w-xl break-words">
+                            {description}
+                        </p>
+                        <button
+                            onClick={() => {
+                                document.getElementById("Programs")?.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
+                            }}
+                            className="bg-[#FD8531] text-[#361A06] text-lg md:text-xl px-6 py-3 rounded-md font-semibold mt-4"
+                        >
+                            SEE ALL COURSES
+                        </button>
+                    </div>
+
+                    {/* Person Image at Bottom */}
+                    <div className="flex justify-center">
+                        <img
+                            src="/person.webp"
+                            alt="Person"
+                            className="w-[65%] sm:w-[50%] md:w-[40%] lg:w-[35%] xl:w-[30%] max-w-[600px] object-contain"
+                        />
+                    </div>
+                </div>
+
+                {/* Mobile Contact Button */}
+                <button
+                    onClick={() => setShowContact(true)}
+                    className="lg:hidden fixed bottom-24 right-4 bg-brown-700 p-3 rounded-full hover:scale-105 z-50"
+                >
+                    <img src="/Phone.png" alt="Call" className="w-12 h-12" />
+                </button>
+
+                {/* Popups */}
+                {showPopup && (
+                    <>
+                        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
+                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <ContactPopup onClose={() => setShowPopup(false)} />
+                        </div>
+                    </>
+                )}
+                {showContact && (
+                    <>
+                        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
+                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <ContactPopup onClose={() => setShowContact(false)} />
+                        </div>
+                    </>
+                )}
             </div>
 
-            {/* Mobile Contact Button */}
-            <button
-                onClick={() => setShowContact(true)}
-                className="lg:hidden block bg-brown-700 p-3 rounded-full fixed right-4 bottom-24 hover:scale-105 z-50"
-            >
-                <img src="/Phone.png" alt="Call" className="w-12 h-12" />
-            </button>
-
-            {/* Contact Popups */}
-            {showPopup && (
-                <>
-                    <div
-                        className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
-                        onClick={() => setShowPopup(false)}
-                    />
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
-                        <ContactPopup onClose={() => setShowPopup(false)} />
-                    </div>
-                </>
-            )}
-
-            {showContact && (
-                <>
-                    <div
-                        className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
-                        onClick={() => setShowContact(false)}
-                    />
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
-                        <ContactPopup onClose={() => setShowContact(false)} />
-                    </div>
-                </>
-            )}
-        </div>
+        </>
 
     );
 };
 
 export default Navbar;
+
+
 
