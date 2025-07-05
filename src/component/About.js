@@ -74,22 +74,30 @@ const About = () => {
                                     <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-[#D17A0E] border-solid" />
                                 ) : (
                                     aboutData.PhotoCarousel?.map((img, index) => {
-                                        const isBase64 = img.startsWith("data:image") || img.length > 100; // crude base64 check
-                                        const imgSrc = isBase64 ? img : img.startsWith("/") ? img : `/images/${img}`; // adjust if your public path is different
+                                        if (!img || typeof img !== "string") return null; // ✅ Check before using .startsWith()
+
+                                        const isBase64 = img.startsWith("data:image") || img.length > 100;
+                                        const imgSrc = isBase64
+                                            ? img
+                                            : img.startsWith("/")
+                                                ? img
+                                                : `${API_BASE_URL}/${img}`; // or `/images/${img}` based on your file hosting
 
                                         return (
                                             <img
                                                 key={index}
                                                 src={imgSrc}
                                                 alt="Yoga"
-                                                className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+                                                className={`absolute w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-500 ${currentImageIndex === index ? "opacity-100" : "opacity-0"
+                                                    }`}
                                                 onError={(e) => {
                                                     e.target.onerror = null;
-                                                    // e.target.src = "/default-placeholder.png";
+                                                    e.target.src = "/default-placeholder.png";
                                                 }}
                                             />
                                         );
                                     })
+
                                 )}
                             </div>
 

@@ -104,7 +104,7 @@ const Testimonials = () => {
                             <div className="relative z-10">
                                 <div className="flex items-center font-jakarta gap-4">
                                     <img
-                                        src={testimonial.Photo || "/Profile.png"}
+                                        src={testimonial.Photo && testimonial.Photo.trim() !== "" ? testimonial.Photo : "/image5.png"}
                                         alt={testimonial.Name}
                                         className="w-12 h-12 rounded-full object-cover"
                                     />
