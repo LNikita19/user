@@ -94,9 +94,7 @@ const Footer = () => {
                         <a href={footerData.facebookLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
                             <FaFacebookF className="text-white text-xl" />
                         </a>
-                        {/* <a href={footerData.xLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
-                            <FaTwitter className="text-white text-xl" />
-                        </a> */}
+
                         <a href={footerData.instagramLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3  text-white rounded-full cursor-pointer">
                             <FaInstagram className="text-white text-xl" />
                         </a>
