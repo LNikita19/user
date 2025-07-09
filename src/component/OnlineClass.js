@@ -190,7 +190,7 @@ const OnlineClass = () => {
                                 Contact us
                             </button>
                             <a
-                                href="https://www.youtube.com/"
+                                href={classData.youTubeLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap inline-block text-center"
@@ -198,14 +198,18 @@ const OnlineClass = () => {
                                 Watch video on YouTube
                             </a>
 
+
+
                         </div>
 
-                        <button
-                            className="w-full bg-[#361A06] text-[#FFF9E1] py-2 rounded-lg text-[18px] font-bold mt-4"
-                            onClick={() => setShowContact1Popup(true)}
+                        <a
+                            href={classData.googleLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-[#361A06] text-[#FFF9E1] py-2 rounded-lg text-[18px] font-bold mt-4 text-center block"
                         >
                             Book Now
-                        </button>
+                        </a>
 
 
                         {/* Render Popups Conditionally */}

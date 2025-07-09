@@ -92,7 +92,7 @@ const About = () => {
                                                     }`}
                                                 onError={(e) => {
                                                     e.target.onerror = null;
-                                                    e.target.src = "/default-placeholder.png";
+                                                    // e.target.src = "/default-placeholder.png";
                                                 }}
                                             />
                                         );

@@ -42,7 +42,7 @@ const Navbar = () => {
             <div className="lg:hidden relative w-full md:min-h-screen xl:min-h-screen lg:min-h-screen 2xl:min-h-screen 3xl:min-h-screen sm:min-h-[80vh] overflow-hidden pb-[280px] md:pb-[280px] xl:pb-[350px]">
                 {/* Background Image */}
                 <img
-                    src="/Background.png"
+                    src="/BG.webp"
                     alt="Background"
                     className="absolute w-full h-full object-cover"
                 />
@@ -129,7 +129,7 @@ const Navbar = () => {
             <div className="hidden lg:block relative w-full min-h-screen overflow-hidden bg-black text-white">
                 {/* Background Image */}
                 <img
-                    src="/Background.png"
+                    src="/BG.webp"
                     alt="Background"
                     className="absolute inset-0 w-full h-full object-cover z-0"
                 />
