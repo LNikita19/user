@@ -91,29 +91,27 @@ const Footer = () => {
 
                     {/* Social Icons */}
                     <div className="flex justify-center md:justify-start gap-4 mt-5">
-                        <a href={footerData.facebookLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
-                            <FaFacebookF className="text-white text-xl" />
-                        </a>
+                        {footerData.facebookLink && (
+                            <a href={footerData.facebookLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
+                                <FaFacebookF className="text-white text-xl" />
+                            </a>
+                        )}
 
-                        <a href={footerData.instagramLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3  text-white rounded-full cursor-pointer">
-                            <FaInstagram className="text-white text-xl" />
-                        </a>
-                        <a
-                            href=''
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-orange-400 p-3 rounded-full cursor-pointer"
-                        >
-                            <FaXTwitter className="text-white text-xl" />
-                        </a>
-                        <a
-                            href=""
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-orange-400 p-3 rounded-full cursor-pointer"
-                        >
-                            <FaYoutube className="text-white text-xl" />
-                        </a>
+                        {footerData.instagramLink && (
+                            <a href={footerData.instagramLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
+                                <FaInstagram className="text-white text-xl" />
+                            </a>
+                        )}
+                        {footerData.xLink && (
+                            <a href={footerData.xLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
+                                <FaXTwitter className="text-white text-xl" />
+                            </a>
+                        )}
+                        {footerData.youtubeLink && (
+                            <a href={footerData.youtubeLink} target="_blank" rel="noopener noreferrer" className="bg-orange-400 p-3 rounded-full cursor-pointer">
+                                <FaYoutube className="text-white text-xl" />
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
