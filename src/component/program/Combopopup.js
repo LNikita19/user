@@ -5,7 +5,15 @@ import ContactPopup1 from "./Contactpopup1";
 const Combopopup = ({ onClose, program }) => {
     const [showContact, setShowContact] = useState(false);
     const [openFAQ, setOpenFAQ] = useState(null);
+    useEffect(() => {
+        // Lock scroll when this popup is open
+        document.body.style.overflow = "hidden";
 
+        // Cleanup scroll lock when popup is closed/unmounted
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
     if (!program) {
         return <div className="text-center py-8">Loading...</div>;
     }
@@ -46,13 +54,21 @@ const Combopopup = ({ onClose, program }) => {
                     {/* <img src={program.Photo} alt="Program" className="w-full max-h-60 object-contain rounded-xl" /> */}
 
                     {/* Program Image */}
-                    <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
-                        <img src={program.Photo} alt="Program" className="w-full h-full object-cover" />
-                        {/* Blur Gradient Overlay */}
-                        <div className="absolute -bottom-0 left-0 w-full h-1/2"
-                            style={{ background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)" }}>
-                        </div>
+                    <div className="relative w-full max-h-96 overflow-hidden rounded-lg bg-white flex justify-center items-center">
+                        <img
+                            src={program.Photo}
+                            alt="Program"
+                            className="w-full h-auto object-contain"
+                        />
+                        {/* Blur Gradient Overlay (optional) */}
+                        <div
+                            className="absolute bottom-0 left-0 w-full h-1/2"
+                            style={{
+                                background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)",
+                            }}
+                        ></div>
                     </div>
+
                     {/* Quote */}
                     <p className="italic text-center text-[#361A06] mt-3">
                         "{program.Quto}"<br />
@@ -127,9 +143,17 @@ const Combopopup = ({ onClose, program }) => {
                         <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 rounded-lg" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
-                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
+
+
+                        <a
+                            href={program.youTubeLink?.startsWith("http") ? program.youTubeLink : "https://youtube.com"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg"
+                        >
                             Register Now
-                        </button>
+                        </a>
+
 
 
                         {/* Register Now Button (Opens Google Form) */}

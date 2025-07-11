@@ -54,7 +54,7 @@ const Footer = () => {
 
     return (
         <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center lg:mt-16 mt-4"
-            style={{ backgroundImage: `url(${'/Background.png'})` }}>
+            style={{ backgroundImage: `url(${'/BG.webp'})` }}>
             <div className="max-w-screen-lg mx-auto space-x-16 flex flex-col items-center md:flex-row md:items-center md:justify-between mt-8">
                 {/* Left Side - Logo Section */}
                 <div className=" flex flex-col items-center mt-8 md:items-start">
@@ -126,9 +126,15 @@ const Footer = () => {
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap">
                         Shyama Yoga Studio
                     </p>
-                    <Link to="/privacy-policy" className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap hover:underline">
+                    <a
+                        href="/privacy-policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap hover:underline"
+                    >
                         Privacy Policy
-                    </Link>
+                    </a>
+
                     <p className="text-[#FFF9E1] font-jakarta font-bold text-[14px] whitespace-nowrap">
                         &copy;2025. All rights reserved.
                     </p>

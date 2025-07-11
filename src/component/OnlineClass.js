@@ -29,6 +29,21 @@ const OnlineClass = () => {
         fetchClassData();
     }, []);
 
+    useEffect(() => {
+        const isAnyPopupOpen = showPopup || showContactPopup || showContact1Popup;
+
+        if (isAnyPopupOpen) {
+            document.body.style.overflow = "hidden"; // ❌ lock scroll
+        } else {
+            document.body.style.overflow = "auto";   // ✅ allow scroll
+        }
+
+        // Cleanup when component unmounts (important if user navigates away)
+        return () => {
+            document.body.style.overflow = "auto";   // ✅ ensure scroll reset
+        };
+    }, [showPopup, showContactPopup, showContact1Popup]);
+
     const fetchClassData = async () => {
         try {
             const response = await axios.get(`${API_BASE_URL}/getonlineData`);
@@ -54,6 +69,7 @@ const OnlineClass = () => {
         return <div className="text-center py-8"></div>;
     }
 
+
     return (
         <div className="bg-[#FFF4C0] h-full flex flex-col items-center py-10 px-5 rounded-lg ">
             <p className='text-[#FD8531] font-bold md:text-[24px] text-[20px] font-david uppercase'>Online  Classes</p>
@@ -66,7 +82,13 @@ const OnlineClass = () => {
 
             <div className="border-2 border-[#361A0680] p-6 rounded-xl mt-4">
                 <div className="bg-white rounded-xl shadow-lg p-5 max-w-4xl w-full ">
-                    <img src={classData.Photo} alt={classData.selectProgram} className="rounded-xl w-full" />
+                    <img
+                        src={`data:image/png;base64,${classData.Photo}`}
+                        alt={classData.selectProgram}
+                        className="rounded-lg w-full max-h-[600px] object-cover"
+                    />
+
+
                     <div className="">
                         <p className="text-[#FD8531] font-david md:text-[24px]  md:mt-6 mt-2 text-[16px] -mb-2 font-bold uppercase text-sm">Training Online</p>
                         <h2 className="text-[#361A06] font-david md:text-[48px] text-[24px] font-bold ">
@@ -94,6 +116,8 @@ const OnlineClass = () => {
             {/* Popup Modal */}
             {showPopup && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 p-4">
+
+
                     {/* Outer Container for the Popup with max-width and max-height */}
                     <div className="relative border-2 border-[#361A0680] lg:p-6 p-4 rounded-xl bg-white shadow-xl w-full max-w-xl max-h-[90vh] flex flex-col">
                         {/* Close Button - fixed relative to this outer container */}
@@ -111,7 +135,11 @@ const OnlineClass = () => {
                         <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar leading-[1.0]"> {/* Added flex-grow, overflow-y-auto, pr-4, custom-scrollbar */}
                             {/* Image */}
                             <div className="relative w-full max-h-60 overflow-hidden rounded-lg">
-                                <img src={classData.Photo} alt={classData.selectProgram} className="rounded-lg w-full h-auto object-cover" />
+                                <img
+                                    src={`data:image/png;base64,${classData.Photo}`}
+                                    alt={classData.selectProgram}
+                                    className="rounded-lg w-full h-1/2 object-cover"
+                                />
                                 {/* Blur Gradient Overlay */}
                                 <div className="absolute -bottom-0 left-0 w-full h-1/2"
                                     style={{ background: "linear-gradient(0deg, #FFFFFF 9.9%, rgba(255, 255, 255, 0.02) 20.71%)" }}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContactPopup1 from "./Contactpopup1";
 
 const PopupProgram = ({ onClose, program }) => {
@@ -17,6 +17,15 @@ const PopupProgram = ({ onClose, program }) => {
     // const displayData = program || defaultData;
     const [openFAQ, setOpenFAQ] = useState(null);
     const [showContact, setShowContact] = useState(false);
+    useEffect(() => {
+        // Lock scroll when this popup is open
+        document.body.style.overflow = "hidden";
+
+        // Cleanup scroll lock when popup is closed/unmounted
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
 
     // const toggleFAQ = (index) => {
     //     setOpenFAQ(openFAQ === index ? null : index);
@@ -121,9 +130,20 @@ const PopupProgram = ({ onClose, program }) => {
                         <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 bg-[#FFF9E1] rounded-xl" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
-                        <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
+                        {/* <button className="px-4 py-2  w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg" onClick={() => window.open("https://forms.gle/your-google-form-link", "_blank")}>
                             Register Now
-                        </button>
+                        </button> */}
+
+
+
+                        <a
+                            href={program.youTubeLink?.startsWith("http") ? program.youTubeLink : "https://youtube.com"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg"
+                        >
+                            Register Now
+                        </a>
 
 
                         {/* Register Now Button (Opens Google Form) */}

@@ -39,7 +39,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center" style={{ backgroundImage: "url('/Background.png')" }}>
+        <footer className="relative text-white text-center py-6 px-4 bg-cover bg-center" style={{ backgroundImage: "url('/BG.webp')" }}>
             <div className="max-w-screen-lg mx-auto flex flex-col items-center md:flex-row md:items-center md:justify-between">
                 {/* Left Side - Logo with Circular Background */}
                 <div className="relative flex flex-col items-center md:items-start">
