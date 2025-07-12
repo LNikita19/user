@@ -140,7 +140,7 @@ const PopupProgram = ({ onClose, program }) => {
                             href={program.youTubeLink?.startsWith("http") ? program.youTubeLink : "https://youtube.com"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 w-full lg:w-1/2 bg-orange-500 text-white font-bold rounded-lg"
+                            className="px-4 py-2 w-full lg:w-1/2 bg-orange-500 text-white text-center font-bold rounded-lg"
                         >
                             Register Now
                         </a>

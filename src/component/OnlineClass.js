@@ -210,7 +210,7 @@ const OnlineClass = () => {
                         </div>
 
                         {/* Buttons (Fixed at the bottom of the popup) */}
-                        <div className="mt-4 flex flex-col md:flex-row justify-between md:space-x-4 bg-white pt-4 border-t-2 border-[#361A061A]"> {/* Added mt-4, bg-white, pt-4, border-t-2 */}
+                        <div className="mt-4 flex flex-col md:flex-row justify-between md:space-x-4 space-x-0  bg-white pt-4 border-t-2 border-[#361A061A]"> {/* Added mt-4, bg-white, pt-4, border-t-2 */}
                             <button
                                 className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 bg-[#FFF9E1] rounded-xl" // Added mb-2 md:mb-0 for spacing
                                 onClick={() => setShowContactPopup(true)}
@@ -221,7 +221,7 @@ const OnlineClass = () => {
                                 href={classData.youTubeLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-4 py-2 w-full md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap inline-block text-center"
+                                className="px-4 py-2 w-full mt-4 lg:mt-0 md:w-auto bg-[#FD8531] border border-white text-[#FFF9E1] font-bold font-jakarta text-[16px] rounded-lg whitespace-nowrap inline-block text-center"
                             >
                                 Watch video on YouTube
                             </a>

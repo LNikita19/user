@@ -80,7 +80,7 @@ const ImageSlider = () => {
                                 key={i}
                                 src={src}
                                 alt={`Slide ${i + 1}`}
-                                className="w-1/2 gap-8 object-cover rounded-lg shadow-md transform transition-all duration-300 hover:scale-105"
+                                className="w-1/3 gap-8 object-cover rounded-lg shadow-md transform transition-all duration-300 hover:scale-105"
                                 onError={(e) => {
                                     if (uploadedImages.includes(src)) {
                                         e.target.src = defaultImages[i % defaultImages.length];
