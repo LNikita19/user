@@ -3,9 +3,9 @@ import axios from "axios";
 import { API_BASE_URL } from "../config";
 
 const defaultData = {
-    Heading: "Clear Mind & Refresh Your Body",
-    Description: "Lorem Ipsum is simply dummy text of the printing & typesetting industry.",
-    PhotoCarousel: ["/image1.png", "/Image3.png"], // ✅ Corrected array
+    Heading: "",
+    Description: "",
+    PhotoCarousel: [], // ✅ Corrected array
 };
 
 const About = () => {
