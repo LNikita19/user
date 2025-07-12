@@ -70,13 +70,13 @@ const Combopopup = ({ onClose, program }) => {
                     </div>
 
                     {/* Quote */}
-                    <p className="italic text-center text-[#361A06] mt-3">
-                        "{program.Quto}"<br />
-                        — <b className="text-[#361A06] font-david italic">Sadhguru</b>
-                    </p>
-                    <p className="italic text-center text-[#361A06] mt-3">
-                        "{program.Quto1}"
-                    </p>
+                    <div className="text-center mt-3 text-[#361A06] italic">
+                        <p>"{program.Quto}"</p>
+                        <p>"{program.Quto1}"</p>
+                        <p className="mt-1">
+                            — <b className="font-david italic">Sadhguru</b>
+                        </p>
+                    </div>
 
                     {/* Program Details */}
                     <div className="mt-4 text-left">

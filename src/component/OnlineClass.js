@@ -81,7 +81,7 @@ const OnlineClass = () => {
             </h1>
 
             <div className="border-2 border-[#361A0680] p-6 rounded-xl mt-4">
-                <div className="bg-white rounded-xl shadow-lg p-5 max-w-4xl w-full ">
+                <div className="bg-white rounded-xl shadow-lg p-5 max-w-3xl">
                     <img
                         src={`data:image/png;base64,${classData.Photo}`}
                         alt={classData.selectProgram}
