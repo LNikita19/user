@@ -10,7 +10,7 @@ const ContactPopup1 = ({ onClose }) => {
                 <p className="text-center text-sm text-[#361A06] mt-2">
                     For severe health concerns, consult and follow your doctor’s advice. For participation inquiries, contact us.                </p>
                 <div className="mt-4">
-                    <p><b>📞  Helpline : </b>  +91 8150409001 / +91 9951400096</p>
+                    <p><b>📞  Helpline : </b>  +91 8500409800 | +91 9951400096</p>
                     <p><b>📧   Email : </b>  support@shyama-yoga.com</p>
                 </div>
             </div>

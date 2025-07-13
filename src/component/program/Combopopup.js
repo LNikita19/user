@@ -19,8 +19,8 @@ const Combopopup = ({ onClose, program }) => {
     }
 
     const fee1 = parseInt(program.programFees) || 0;
-    const fee2 = parseInt(program.programFees1) || 0;
-    const totalFee = fee1 + fee2;
+    // const fee2 = parseInt(program.programFees1) || 0;
+    // const totalFee = fee1 + fee2;
 
     const formatCurrency = (amount) =>
         new Intl.NumberFormat("en-IN", {
@@ -72,7 +72,7 @@ const Combopopup = ({ onClose, program }) => {
                     {/* Quote */}
                     <div className="text-center mt-3 text-[#361A06] italic">
                         <p>"{program.Quto}"</p>
-                        <p>"{program.Quto1}"</p>
+                        {/* <p>"{program.Quto1}"</p> */}
                         <p className="mt-1">
                             — <b className="font-david italic">Sadhguru</b>
                         </p>
@@ -94,7 +94,7 @@ const Combopopup = ({ onClose, program }) => {
                                 { label: "Language", value: program.selectLanguage },
                                 {
                                     label: "Program Fee",
-                                    value: `${formatCurrency(fee1)} INR + ${formatCurrency(fee2)} INR = ${formatCurrency(totalFee)} INR`
+                                    value: `${formatCurrency(fee1)} INR`
                                 },
                             ].map((item, index) => (
                                 <li
@@ -140,7 +140,7 @@ const Combopopup = ({ onClose, program }) => {
 
                     {/* Buttons */}
                     <div className=" flex flex-col lg:flex-row justify-between font-jakarta lg:space-x-2  space-y-2 lg:space-y-0 mt-4">
-                        <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 rounded-lg" onClick={() => setShowContact(true)}>
+                        <button className="px-4 py-2 w-full lg:w-1/2 border border-orange-500 font-bold text-orange-500 bg-[#FFF9E1] rounded-lg" onClick={() => setShowContact(true)}>
                             Contact us
                         </button>
 
