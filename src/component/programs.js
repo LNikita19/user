@@ -20,6 +20,8 @@ const Programs = () => {
     const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [filteredPrograms, setFilteredPrograms] = useState([]);
+    const [visibleCount, setVisibleCount] = useState(4);
+
     const [availableMonths, setAvailableMonths] = useState([]);
     const [availableLanguages, setAvailableLanguages] = useState([]);
 
@@ -145,7 +147,7 @@ const Programs = () => {
         setSortBy("language");
     };
 
-    const displayedPrograms = filteredPrograms.slice(0, 4);
+    const displayedPrograms = filteredPrograms.slice(0, visibleCount);
 
     return (
         <div id="Programs" className="px-6 py-10 bg-[#FFFBEF]">
@@ -165,8 +167,8 @@ const Programs = () => {
                     <div className="relative">
                         <button
                             className={`flex items-center justify-between px-4 py-2 text-[16px] md:text-[18px] rounded-md bg-[#FDF7C4] transition-all duration-200 font-bold ${sortBy === "month"
-                                    ? "bg-[#FD8531] text-[#361A06]"
-                                    : "bg-[#FDF7C4] text-[#361A06]"
+                                ? "bg-[#FD8531] text-[#361A06]"
+                                : "bg-[#FDF7C4] text-[#361A06]"
                                 }
 "
                                 }`}
@@ -302,7 +304,7 @@ const Programs = () => {
                                         </div>
                                     )}
 
-                                        {/* Combo Badge
+                                    {/* Combo Badge
                                         {program.badge && (
                                             <div className="absolute top-3 right-3 bg-[#FD8531] text-white text-sm px-3 py-1 rounded-full">
                                                 {program.badge}
@@ -331,11 +333,19 @@ const Programs = () => {
 
                     {filteredPrograms.length > 4 && (
                         <div className="flex justify-center mt-6">
-                            <button className="bg-[#FD8531] text-white py-2 px-6 rounded-md font-bold text-lg" onClick={() => { /* Implement load more logic if needed */ }}>
-                                Load More
+                            <button
+                                className="bg-[#FD8531] text-white py-2 px-6 rounded-md font-bold text-lg"
+                                onClick={() =>
+                                    visibleCount < filteredPrograms.length
+                                        ? setVisibleCount(filteredPrograms.length) // Show all
+                                        : setVisibleCount(4) // Collapse back to 4
+                                }
+                            >
+                                {visibleCount < filteredPrograms.length ? "Load More" : "Show Less"}
                             </button>
                         </div>
                     )}
+
                 </>
             )}
 
