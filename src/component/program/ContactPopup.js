@@ -147,8 +147,8 @@ const ContactPopup = ({ onClose }) => {
         else if (!phoneRegex.test(formData.Phone)) newErrors.Phone = "Phone must be exactly 10 digits";
 
         // Message
-        if (!formData.Message.trim()) newErrors.Message = "Message is required";
-        else if (formData.Message.trim().length < 10) newErrors.Message = "Message must be at least 10 characters";
+        // if (!formData.Message.trim()) newErrors.Message = "Message is required";
+        // else if (formData.Message.trim().length < 10) newErrors.Message = "Message must be at least 10 characters";
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
