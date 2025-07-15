@@ -37,11 +37,15 @@ const About = () => {
     }, []);
 
     useEffect(() => {
+        if (aboutData.PhotoCarousel.length === 0) return;
+
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % aboutData.PhotoCarousel.length);
         }, 3000);
+
         return () => clearInterval(interval);
-    }, [aboutData]);
+    }, [aboutData.PhotoCarousel]);
+
     return (
         <>
             <div className="bg-[#FFF4C0] font-david flex flex-col min-h-screen p-6">

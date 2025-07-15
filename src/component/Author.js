@@ -51,7 +51,7 @@ const Author = () => {
                     <div className="w-full flex justify-center items-center">
                         <div className="relative w-[250px] md:w-[350px] lg:w-[400px]">
                             <img
-                                src={image || "/main.webp"}
+                                src={image}
                                 alt="Teacher"
                                 className="w-full h-auto object-cover rounded-lg aspect-[12/11]"
                             />
